@@ -1,422 +1,2402 @@
 [
   {
     "id": 1,
-    "diagnosis": {"skin_type": "Oily", "concern": "Acne", "severity": "Moderate"},
+    "user_profile": {
+      "name": "Linh Tran",
+      "age": 22,
+      "gender": "Female",
+      "lifestyle": "Office work with high screen time and air-conditioned environment"
+    },
+    "diagnosis": {
+      "skin_type": "Oily",
+      "concern": "Acne",
+      "severity": "Moderate"
+    },
     "plan": {
-      "name": "Acne Control Protocol A",
-      "duration_weeks": 12,
+      "name": "Acne Control Plan 1",
+      "duration_weeks": 11,
       "phases": [
-        {"week": 1, "goal": "Calm inflammation", "description": "Reduce active redness and sensitivity with low-irritation cleansing and hydration."},
-        {"week": 4, "goal": "Comedone control", "description": "Introduce targeted actives to reduce clogged pores and new breakouts."},
-        {"week": 8, "goal": "Stabilize barrier", "description": "Maintain acne control while strengthening barrier tolerance for long-term adherence."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Inflammation calming",
+          "description": "Calm active lesions and reduce irritation before stronger correction."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Lesion control",
+          "description": "Introduce targeted anti-acne actives with controlled escalation."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Relapse prevention",
+          "description": "Maintain clarity and prevent rebound breakouts with barrier support."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Clarifying Gel Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Removes excess sebum without over-stripping barrier lipids."},
-      {"product_name": "BHA-Niacinamide Corrective Serum", "role": "Serum", "phase": "Phase 2", "reason": "Targets pore congestion and post-inflammatory lesions."},
-      {"product_name": "Barrier Balance Cream", "role": "Moisturizer", "phase": "Phase 3", "reason": "Improves tolerance and lowers rebound irritation risk."},
-      {"product_name": "Oil-Control UV Shield SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Prevents pigmentation worsening from UV exposure."}
+    "kit": {
+      "bundle_name": "Acne Control Kit A",
+      "price": 990000,
+      "products": [
+        {
+          "product_name": "Purifying Gel Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Controls excess sebum and debris without over-stripping."
+        },
+        {
+          "product_name": "BHA-Niacinamide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets clogged pores and inflammatory lesions."
+        },
+        {
+          "product_name": "Barrier Balance Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Supports adherence by reducing dryness and irritation."
+        },
+        {
+          "product_name": "Oil Control SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Prevents post-inflammatory dark marks from UV exposure."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Switching to harsh exfoliants can trigger irritation and rebound oiliness.", "Skipping sunscreen may prolong dark marks after acne flare."],
-    "consultation": {"user_intent": "Clear active acne before upcoming event", "recommended_action": "Follow weekly protocol with strict nighttime serum timing and review at week 4."}
+    "consultation": {
+      "user_intent": "Stop recurring breakouts and reduce marks.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "new",
+      "recommended_kit": "Acne Control Kit A",
+      "discount_offer": 0,
+      "urgency_message": "Complete diagnosis today to secure clinician review slot."
+    },
+    "admin": {
+      "assigned_to": "Dr. N. Tran",
+      "notes": [
+        "Primary concern: Acne (Moderate).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 2,
-    "diagnosis": {"skin_type": "Combination", "concern": "Dark Spots", "severity": "Mild"},
+    "user_profile": {
+      "name": "Minh Nguyen",
+      "age": 24,
+      "gender": "Male",
+      "lifestyle": "Night-shift schedule with irregular sleep"
+    },
+    "diagnosis": {
+      "skin_type": "Dry",
+      "concern": "Dark Spots",
+      "severity": "Severe"
+    },
     "plan": {
-      "name": "Pigment Evenness Plan B",
+      "name": "Pigment Recovery Plan 2",
       "duration_weeks": 10,
       "phases": [
-        {"week": 1, "goal": "Protect and prep", "description": "Improve hydration and UV defense before brightening intensification."},
-        {"week": 3, "goal": "Brightening activation", "description": "Add pigment-targeting actives with gradual frequency escalation."},
-        {"week": 7, "goal": "Tone maintenance", "description": "Maintain even tone and prevent rebound darkening."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "UV and barrier prep",
+          "description": "Stabilize skin and photoprotection before brightening acceleration."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Spot correction",
+          "description": "Apply pigment-corrective actives to fade uneven tone."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Tone retention",
+          "description": "Maintain results and prevent UV-triggered darkening recurrence."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Gentle pH Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Supports daily cleansing without inflammatory stress."},
-      {"product_name": "Tranexamic-C Bright Serum", "role": "Serum", "phase": "Phase 2", "reason": "Targets uneven melanin pathways and visible spots."},
-      {"product_name": "Hydra-Calm Emulsion", "role": "Moisturizer", "phase": "Phase 2", "reason": "Buffers brightening actives and limits irritation."},
-      {"product_name": "Daily Tone Guard SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Core prevention for UV-induced pigment recurrence."}
+    "kit": {
+      "bundle_name": "Pigment Recovery Kit B",
+      "price": 1340000,
+      "products": [
+        {
+          "product_name": "Gentle Bright Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Creates low-irritation base for pigment treatment."
+        },
+        {
+          "product_name": "TXA-Vitamin C Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets uneven melanin activity and visible spots."
+        },
+        {
+          "product_name": "Hydra Calm Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 2",
+          "usage": "Both",
+          "reason": "Buffers active irritation and keeps barrier stable."
+        },
+        {
+          "product_name": "Tone Defense SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Essential to prevent pigment rebound during correction."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Using random peels may worsen post-inflammatory hyperpigmentation.", "Inconsistent SPF use can erase brightening progress."],
-    "consultation": {"user_intent": "Fade old acne marks", "recommended_action": "Use brightening serum nightly with strict daytime UV protection."}
+    "consultation": {
+      "user_intent": "Fade uneven pigmentation safely.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "consulting",
+      "recommended_kit": "Pigment Recovery Kit B",
+      "discount_offer": 5,
+      "urgency_message": "Confirm your plan within 24h to start phase 1 on schedule."
+    },
+    "admin": {
+      "assigned_to": "Dr. M. Le",
+      "notes": [
+        "Primary concern: Dark Spots (Severe).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 3,
-    "diagnosis": {"skin_type": "Dry", "concern": "Sensitive", "severity": "Moderate"},
+    "user_profile": {
+      "name": "Huy Pham",
+      "age": 26,
+      "gender": "Female",
+      "lifestyle": "Outdoor commuting 2 hours daily"
+    },
+    "diagnosis": {
+      "skin_type": "Oily",
+      "concern": "Sensitive",
+      "severity": "Mild"
+    },
     "plan": {
-      "name": "Barrier Repair Protocol S1",
-      "duration_weeks": 8,
+      "name": "Barrier Repair Plan 3",
+      "duration_weeks": 9,
       "phases": [
-        {"week": 1, "goal": "Inflammation reduction", "description": "Minimize trigger exposure and restore moisture balance."},
-        {"week": 3, "goal": "Tolerance rebuilding", "description": "Introduce low-strength soothing actives with controlled frequency."},
-        {"week": 6, "goal": "Resilience maintenance", "description": "Sustain barrier integrity and reduce flare recurrence."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Trigger reduction",
+          "description": "Remove irritants and rapidly reduce redness episodes."
+        },
+        {
+          "week": 3,
+          "phase": "Phase 2",
+          "goal": "Tolerance rebuilding",
+          "description": "Add soothing active support with low-frequency schedule."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 3",
+          "goal": "Stability maintenance",
+          "description": "Sustain comfort and reduce flare recurrence risk."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Cream Comfort Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Cleanses gently with minimal surfactant irritation."},
-      {"product_name": "Panthenol-Ceramide Serum", "role": "Serum", "phase": "Phase 2", "reason": "Improves skin recovery signaling and hydration retention."},
-      {"product_name": "Lipid Restore Balm", "role": "Moisturizer", "phase": "Phase 3", "reason": "Reinforces weakened barrier and decreases transepidermal water loss."},
-      {"product_name": "Mineral Calm SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Provides low-irritation UV protection for sensitive skin."}
+    "kit": {
+      "bundle_name": "Barrier Repair Kit C",
+      "price": 890000,
+      "products": [
+        {
+          "product_name": "Comfort Cream Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Cleanses with minimal surfactant irritation."
+        },
+        {
+          "product_name": "Ceramide-Panthenol Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports tolerance rebuilding and redness control."
+        },
+        {
+          "product_name": "Lipid Restore Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Strengthens barrier and reduces transepidermal water loss."
+        },
+        {
+          "product_name": "Mineral Calm SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Provides low-reactivity UV protection for sensitive skin."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Trying strong acids can cause burning and prolonged erythema.", "Skipping moisturizer may worsen tightness and peeling."],
-    "consultation": {"user_intent": "Stop recurring irritation", "recommended_action": "Maintain strict barrier-first routine and postpone high-potency actives."}
+    "consultation": {
+      "user_intent": "Reduce redness and improve tolerance.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "recommended",
+      "recommended_kit": "Barrier Repair Kit C",
+      "discount_offer": 8,
+      "urgency_message": "Your recommended kit pricing is reserved for 48h."
+    },
+    "admin": {
+      "assigned_to": "Dr. T. Vu",
+      "notes": [
+        "Primary concern: Sensitive (Mild).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 4,
-    "diagnosis": {"skin_type": "Combination", "concern": "Aging", "severity": "Mild"},
+    "user_profile": {
+      "name": "An Vo",
+      "age": 28,
+      "gender": "Male",
+      "lifestyle": "Gym 5 times per week with frequent sweating"
+    },
+    "diagnosis": {
+      "skin_type": "Dry",
+      "concern": "Aging",
+      "severity": "Moderate"
+    },
     "plan": {
-      "name": "Early Aging Support Plan",
-      "duration_weeks": 12,
+      "name": "Renewal & Firmness Plan 4",
+      "duration_weeks": 11,
       "phases": [
-        {"week": 1, "goal": "Hydration baseline", "description": "Build hydration and reduce dullness before active renewal."},
-        {"week": 4, "goal": "Texture renewal", "description": "Introduce retinoid-based renewal at controlled intervals."},
-        {"week": 9, "goal": "Firmness retention", "description": "Sustain collagen support and improve visible smoothness."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "Hydration baseline",
+          "description": "Restore hydration and comfort before renewal step."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 2",
+          "goal": "Renewal activation",
+          "description": "Introduce anti-aging active with tolerance monitoring."
+        },
+        {
+          "week": 10,
+          "phase": "Phase 3",
+          "goal": "Firmness retention",
+          "description": "Preserve smoothness and prevent photoaging progression."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Silk Balance Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Prepares skin without disrupting moisture layer."},
-      {"product_name": "Retinal Peptide Serum", "role": "Serum", "phase": "Phase 2", "reason": "Supports texture renewal and fine-line softening."},
-      {"product_name": "Firming Ceramide Cream", "role": "Moisturizer", "phase": "Phase 3", "reason": "Reduces dryness from active renewal and supports elasticity."},
-      {"product_name": "Anti-Photoaging SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Essential to prevent UV-driven collagen breakdown."}
+    "kit": {
+      "bundle_name": "Renewal & Firmness Kit D",
+      "price": 1140000,
+      "products": [
+        {
+          "product_name": "Silk Balance Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Prepares skin without dehydrating surface lipids."
+        },
+        {
+          "product_name": "Retinal-Peptide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports texture renewal and fine-line softening."
+        },
+        {
+          "product_name": "Firm Support Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Maintains comfort and elasticity during active renewal."
+        },
+        {
+          "product_name": "Photoaging Guard SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Protects collagen from UV-driven breakdown."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Overusing retinoids can lead to barrier compromise and redness.", "Ignoring photoprotection accelerates visible aging signs."],
-    "consultation": {"user_intent": "Improve texture and fine lines", "recommended_action": "Escalate retinoid slowly with moisturizer buffering and daytime SPF."}
+    "consultation": {
+      "user_intent": "Improve texture and prevent further photoaging.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "converted",
+      "recommended_kit": "Renewal & Firmness Kit D",
+      "discount_offer": 10,
+      "urgency_message": "Stay on schedule for next milestone review in 7 days."
+    },
+    "admin": {
+      "assigned_to": "Dr. H. Pham",
+      "notes": [
+        "Primary concern: Aging (Moderate).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 5,
-    "diagnosis": {"skin_type": "Oily", "concern": "Acne", "severity": "Severe"},
+    "user_profile": {
+      "name": "Thao Le",
+      "age": 30,
+      "gender": "Female",
+      "lifestyle": "New parent with sleep disruption"
+    },
+    "diagnosis": {
+      "skin_type": "Combination",
+      "concern": "Acne",
+      "severity": "Severe"
+    },
     "plan": {
-      "name": "Acne Intensive Protocol X",
-      "duration_weeks": 14,
+      "name": "Acne Control Plan 5",
+      "duration_weeks": 12,
       "phases": [
-        {"week": 1, "goal": "Flare containment", "description": "Reduce inflammatory lesions and pain points quickly."},
-        {"week": 5, "goal": "Lesion suppression", "description": "Sustain anti-comedone and anti-inflammatory action."},
-        {"week": 10, "goal": "Recurrence prevention", "description": "Transition to long-term control and mark prevention."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Inflammation calming",
+          "description": "Calm active lesions and reduce irritation before stronger correction."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Lesion control",
+          "description": "Introduce targeted anti-acne actives with controlled escalation."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Relapse prevention",
+          "description": "Maintain clarity and prevent rebound breakouts with barrier support."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Deep Pore Wash", "role": "Cleanser", "phase": "Phase 1", "reason": "Manages heavy oil and debris load linked to severe acne."},
-      {"product_name": "Azelaic-Complex Serum", "role": "Serum", "phase": "Phase 2", "reason": "Targets inflammation and helps reduce post-acne discoloration."},
-      {"product_name": "Non-Comedogenic Repair Gel", "role": "Moisturizer", "phase": "Phase 2", "reason": "Maintains hydration without occlusive breakouts."},
-      {"product_name": "Matte Defense SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Prevents UV-triggered inflammation and dark mark persistence."}
+    "kit": {
+      "bundle_name": "Acne Control Kit E",
+      "price": 1290000,
+      "products": [
+        {
+          "product_name": "Purifying Gel Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Controls excess sebum and debris without over-stripping."
+        },
+        {
+          "product_name": "BHA-Niacinamide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets clogged pores and inflammatory lesions."
+        },
+        {
+          "product_name": "Barrier Balance Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Supports adherence by reducing dryness and irritation."
+        },
+        {
+          "product_name": "Oil Control SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Prevents post-inflammatory dark marks from UV exposure."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Adding random heavy creams can increase pore blockage and flare severity.", "Stopping protocol early often causes relapse within weeks."],
-    "consultation": {"user_intent": "Control painful breakouts quickly", "recommended_action": "Strict adherence to intensive schedule and follow-up adjustment at week 5."}
+    "consultation": {
+      "user_intent": "Stop recurring breakouts and reduce marks.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "follow_up",
+      "recommended_kit": "Acne Control Kit E",
+      "discount_offer": 0,
+      "urgency_message": "Book your follow-up now to prevent relapse drift."
+    },
+    "admin": {
+      "assigned_to": "Dr. A. Nguyen",
+      "notes": [
+        "Primary concern: Acne (Severe).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 6,
-    "diagnosis": {"skin_type": "Dry", "concern": "Dark Spots", "severity": "Moderate"},
+    "user_profile": {
+      "name": "Trang Bui",
+      "age": 32,
+      "gender": "Male",
+      "lifestyle": "University student under exam stress"
+    },
+    "diagnosis": {
+      "skin_type": "Oily",
+      "concern": "Dark Spots",
+      "severity": "Mild"
+    },
     "plan": {
-      "name": "Dry Skin Pigment Recovery",
-      "duration_weeks": 12,
+      "name": "Pigment Recovery Plan 6",
+      "duration_weeks": 11,
       "phases": [
-        {"week": 1, "goal": "Hydration restoration", "description": "Rebuild comfort before brightening introduction."},
-        {"week": 4, "goal": "Spot correction", "description": "Apply pigment-correcting actives with low irritation profile."},
-        {"week": 9, "goal": "Color stability", "description": "Sustain brightening outcomes and prevent new darkening."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "UV and barrier prep",
+          "description": "Stabilize skin and photoprotection before brightening acceleration."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Spot correction",
+          "description": "Apply pigment-corrective actives to fade uneven tone."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Tone retention",
+          "description": "Maintain results and prevent UV-triggered darkening recurrence."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Creamy Relief Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Prevents moisture loss during cleansing."},
-      {"product_name": "Arbutin Repair Serum", "role": "Serum", "phase": "Phase 2", "reason": "Targets pigment pathways while supporting tolerance."},
-      {"product_name": "Rich Barrier Moisturizer", "role": "Moisturizer", "phase": "Phase 2", "reason": "Reduces flaking and supports steady active use."},
-      {"product_name": "Hydra UV Veil SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Critical for preventing UV-induced spot persistence."}
+    "kit": {
+      "bundle_name": "Pigment Recovery Kit F",
+      "price": 840000,
+      "products": [
+        {
+          "product_name": "Gentle Bright Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Creates low-irritation base for pigment treatment."
+        },
+        {
+          "product_name": "TXA-Vitamin C Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets uneven melanin activity and visible spots."
+        },
+        {
+          "product_name": "Hydra Calm Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 2",
+          "usage": "Both",
+          "reason": "Buffers active irritation and keeps barrier stable."
+        },
+        {
+          "product_name": "Tone Defense SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Essential to prevent pigment rebound during correction."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Using aggressive exfoliants may deepen irritation-associated discoloration.", "Skipping hydration can reduce adherence and delay visible improvement."],
-    "consultation": {"user_intent": "Lighten dark patches without dryness", "recommended_action": "Pair brightening with rich moisturization and daily UV block."}
+    "consultation": {
+      "user_intent": "Fade uneven pigmentation safely.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "new",
+      "recommended_kit": "Pigment Recovery Kit F",
+      "discount_offer": 5,
+      "urgency_message": "Complete diagnosis today to secure clinician review slot."
+    },
+    "admin": {
+      "assigned_to": "Dr. N. Tran",
+      "notes": [
+        "Primary concern: Dark Spots (Mild).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 7,
-    "diagnosis": {"skin_type": "Combination", "concern": "Sensitive", "severity": "Mild"},
+    "user_profile": {
+      "name": "Khanh Do",
+      "age": 34,
+      "gender": "Female",
+      "lifestyle": "Sales role with frequent makeup and sun exposure"
+    },
+    "diagnosis": {
+      "skin_type": "Dry",
+      "concern": "Sensitive",
+      "severity": "Moderate"
+    },
     "plan": {
-      "name": "Sensitive Stabilization Lite",
-      "duration_weeks": 6,
+      "name": "Barrier Repair Plan 7",
+      "duration_weeks": 7,
       "phases": [
-        {"week": 1, "goal": "Trigger minimization", "description": "Remove likely irritants and simplify routine."},
-        {"week": 2, "goal": "Comfort reinforcement", "description": "Add soothing serum to decrease redness episodes."},
-        {"week": 5, "goal": "Maintenance", "description": "Keep tolerance stable during environmental changes."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Trigger reduction",
+          "description": "Remove irritants and rapidly reduce redness episodes."
+        },
+        {
+          "week": 3,
+          "phase": "Phase 2",
+          "goal": "Tolerance rebuilding",
+          "description": "Add soothing active support with low-frequency schedule."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 3",
+          "goal": "Stability maintenance",
+          "description": "Sustain comfort and reduce flare recurrence risk."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Balanced Comfort Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Low-foam cleansing to avoid sensitivity spikes."},
-      {"product_name": "Soothing Beta-Serum", "role": "Serum", "phase": "Phase 2", "reason": "Calms transient redness and tightness."},
-      {"product_name": "Light Barrier Lotion", "role": "Moisturizer", "phase": "Phase 3", "reason": "Maintains daily barrier support without heaviness."},
-      {"product_name": "Gentle UV Fluid SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Prevents UV-triggered sensitivity flares."}
+    "kit": {
+      "bundle_name": "Barrier Repair Kit G",
+      "price": 1090000,
+      "products": [
+        {
+          "product_name": "Comfort Cream Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Cleanses with minimal surfactant irritation."
+        },
+        {
+          "product_name": "Ceramide-Panthenol Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports tolerance rebuilding and redness control."
+        },
+        {
+          "product_name": "Lipid Restore Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Strengthens barrier and reduces transepidermal water loss."
+        },
+        {
+          "product_name": "Mineral Calm SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Provides low-reactivity UV protection for sensitive skin."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Frequent product switching can trigger cumulative irritation.", "Skipping sunscreen may worsen redness under sun exposure."],
-    "consultation": {"user_intent": "Keep skin calm during weather change", "recommended_action": "Follow simplified protocol and avoid introducing new actives."}
+    "consultation": {
+      "user_intent": "Reduce redness and improve tolerance.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "consulting",
+      "recommended_kit": "Barrier Repair Kit G",
+      "discount_offer": 8,
+      "urgency_message": "Confirm your plan within 24h to start phase 1 on schedule."
+    },
+    "admin": {
+      "assigned_to": "Dr. M. Le",
+      "notes": [
+        "Primary concern: Sensitive (Moderate).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 8,
-    "diagnosis": {"skin_type": "Oily", "concern": "Aging", "severity": "Moderate"},
+    "user_profile": {
+      "name": "Quynh Ho",
+      "age": 36,
+      "gender": "Male",
+      "lifestyle": "Frequent traveler with climate changes"
+    },
+    "diagnosis": {
+      "skin_type": "Combination",
+      "concern": "Aging",
+      "severity": "Severe"
+    },
     "plan": {
-      "name": "Oily Skin Renewal Matrix",
+      "name": "Renewal & Firmness Plan 8",
       "duration_weeks": 12,
       "phases": [
-        {"week": 1, "goal": "Sebum balance", "description": "Control shine while preserving hydration."},
-        {"week": 4, "goal": "Renewal activation", "description": "Integrate anti-aging actives without clogging risk."},
-        {"week": 9, "goal": "Texture retention", "description": "Maintain smoothness and pore appearance gains."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "Hydration baseline",
+          "description": "Restore hydration and comfort before renewal step."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 2",
+          "goal": "Renewal activation",
+          "description": "Introduce anti-aging active with tolerance monitoring."
+        },
+        {
+          "week": 10,
+          "phase": "Phase 3",
+          "goal": "Firmness retention",
+          "description": "Preserve smoothness and prevent photoaging progression."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Foam Balance Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Reduces excess oil buildup to support active delivery."},
-      {"product_name": "Retino-Peptide Fluid", "role": "Serum", "phase": "Phase 2", "reason": "Improves fine lines and uneven texture."},
-      {"product_name": "Gel Barrier Moisturizer", "role": "Moisturizer", "phase": "Phase 2", "reason": "Hydrates without occlusive finish on oily zones."},
-      {"product_name": "Matte UV Age Guard SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Protects anti-aging progress from photo-damage."}
+    "kit": {
+      "bundle_name": "Renewal & Firmness Kit H",
+      "price": 1440000,
+      "products": [
+        {
+          "product_name": "Silk Balance Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Prepares skin without dehydrating surface lipids."
+        },
+        {
+          "product_name": "Retinal-Peptide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports texture renewal and fine-line softening."
+        },
+        {
+          "product_name": "Firm Support Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Maintains comfort and elasticity during active renewal."
+        },
+        {
+          "product_name": "Photoaging Guard SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Protects collagen from UV-driven breakdown."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Choosing rich occlusive creams can increase congestion.", "Over-frequent retinoid use may trigger peeling and dropout."],
-    "consultation": {"user_intent": "Improve lines without breakouts", "recommended_action": "Use lightweight support products with alternate-night renewal serum."}
+    "consultation": {
+      "user_intent": "Improve texture and prevent further photoaging.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "recommended",
+      "recommended_kit": "Renewal & Firmness Kit H",
+      "discount_offer": 10,
+      "urgency_message": "Your recommended kit pricing is reserved for 48h."
+    },
+    "admin": {
+      "assigned_to": "Dr. T. Vu",
+      "notes": [
+        "Primary concern: Aging (Severe).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 9,
-    "diagnosis": {"skin_type": "Dry", "concern": "Aging", "severity": "Severe"},
+    "user_profile": {
+      "name": "Bao Truong",
+      "age": 38,
+      "gender": "Female",
+      "lifestyle": "Office work with high screen time and air-conditioned environment"
+    },
+    "diagnosis": {
+      "skin_type": "Dry",
+      "concern": "Acne",
+      "severity": "Mild"
+    },
     "plan": {
-      "name": "Advanced Barrier-Aging Care",
-      "duration_weeks": 16,
+      "name": "Acne Control Plan 9",
+      "duration_weeks": 13,
       "phases": [
-        {"week": 1, "goal": "Comfort rescue", "description": "Rapidly reduce dryness-related irritation."},
-        {"week": 6, "goal": "Deep renewal", "description": "Gradual anti-aging activation with high moisturization support."},
-        {"week": 12, "goal": "Long-term retention", "description": "Preserve gains in firmness and skin comfort."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Inflammation calming",
+          "description": "Calm active lesions and reduce irritation before stronger correction."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Lesion control",
+          "description": "Introduce targeted anti-acne actives with controlled escalation."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Relapse prevention",
+          "description": "Maintain clarity and prevent rebound breakouts with barrier support."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Nourishing Milk Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Maintains hydration during cleansing in fragile dry skin."},
-      {"product_name": "Retinal-Lipid Serum", "role": "Serum", "phase": "Phase 2", "reason": "Supports collagen-related renewal with controlled irritation profile."},
-      {"product_name": "Intense Repair Cream", "role": "Moisturizer", "phase": "Phase 2", "reason": "Offsets dryness and improves active tolerance."},
-      {"product_name": "Comfort Shield SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Prevents UV-driven collagen loss and dryness aggravation."}
+    "kit": {
+      "bundle_name": "Acne Control Kit I",
+      "price": 790000,
+      "products": [
+        {
+          "product_name": "Purifying Gel Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Controls excess sebum and debris without over-stripping."
+        },
+        {
+          "product_name": "BHA-Niacinamide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets clogged pores and inflammatory lesions."
+        },
+        {
+          "product_name": "Barrier Balance Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Supports adherence by reducing dryness and irritation."
+        },
+        {
+          "product_name": "Oil Control SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Prevents post-inflammatory dark marks from UV exposure."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Using strong exfoliants with retinoids can cause severe barrier damage.", "Poor UV protection can worsen photodamage and wrinkles."],
-    "consultation": {"user_intent": "Address deep dryness and wrinkles", "recommended_action": "Adopt slow escalation and prioritize barrier support every day."}
+    "consultation": {
+      "user_intent": "Stop recurring breakouts and reduce marks.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "converted",
+      "recommended_kit": "Acne Control Kit I",
+      "discount_offer": 0,
+      "urgency_message": "Stay on schedule for next milestone review in 7 days."
+    },
+    "admin": {
+      "assigned_to": "Dr. H. Pham",
+      "notes": [
+        "Primary concern: Acne (Mild).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 10,
-    "diagnosis": {"skin_type": "Combination", "concern": "Acne", "severity": "Mild"},
+    "user_profile": {
+      "name": "Nhi Dang",
+      "age": 40,
+      "gender": "Male",
+      "lifestyle": "Night-shift schedule with irregular sleep"
+    },
+    "diagnosis": {
+      "skin_type": "Combination",
+      "concern": "Dark Spots",
+      "severity": "Moderate"
+    },
     "plan": {
-      "name": "Comedone Prevention Track",
-      "duration_weeks": 8,
+      "name": "Pigment Recovery Plan 10",
+      "duration_weeks": 9,
       "phases": [
-        {"week": 1, "goal": "Routine simplification", "description": "Reduce irritant load and establish consistency."},
-        {"week": 3, "goal": "Pore regulation", "description": "Introduce low-frequency active for comedone control."},
-        {"week": 6, "goal": "Maintenance", "description": "Sustain controlled oil flow and prevent recurrence."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "UV and barrier prep",
+          "description": "Stabilize skin and photoprotection before brightening acceleration."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Spot correction",
+          "description": "Apply pigment-corrective actives to fade uneven tone."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Tone retention",
+          "description": "Maintain results and prevent UV-triggered darkening recurrence."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Daily Purity Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Helps remove pore-clogging residue daily."},
-      {"product_name": "LHA Balancing Serum", "role": "Serum", "phase": "Phase 2", "reason": "Supports gentle keratolytic control for closed comedones."},
-      {"product_name": "Light Hydration Gel", "role": "Moisturizer", "phase": "Phase 3", "reason": "Keeps hydration stable and reduces rebound oil production."},
-      {"product_name": "Urban Defense SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Protects from UV and urban oxidative stress."}
+    "kit": {
+      "bundle_name": "Pigment Recovery Kit J",
+      "price": 1040000,
+      "products": [
+        {
+          "product_name": "Gentle Bright Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Creates low-irritation base for pigment treatment."
+        },
+        {
+          "product_name": "TXA-Vitamin C Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets uneven melanin activity and visible spots."
+        },
+        {
+          "product_name": "Hydra Calm Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 2",
+          "usage": "Both",
+          "reason": "Buffers active irritation and keeps barrier stable."
+        },
+        {
+          "product_name": "Tone Defense SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Essential to prevent pigment rebound during correction."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Skipping cleansing consistency can reactivate comedone formation.", "Adding random scrubs can inflame mild acne into persistent lesions."],
-    "consultation": {"user_intent": "Prevent recurring small breakouts", "recommended_action": "Keep daily schedule fixed and avoid physical scrubs."}
+    "consultation": {
+      "user_intent": "Fade uneven pigmentation safely.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "follow_up",
+      "recommended_kit": "Pigment Recovery Kit J",
+      "discount_offer": 5,
+      "urgency_message": "Book your follow-up now to prevent relapse drift."
+    },
+    "admin": {
+      "assigned_to": "Dr. A. Nguyen",
+      "notes": [
+        "Primary concern: Dark Spots (Moderate).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 11,
-    "diagnosis": {"skin_type": "Oily", "concern": "Dark Spots", "severity": "Moderate"},
+    "user_profile": {
+      "name": "Long Hoang",
+      "age": 42,
+      "gender": "Female",
+      "lifestyle": "Outdoor commuting 2 hours daily"
+    },
+    "diagnosis": {
+      "skin_type": "Combination",
+      "concern": "Sensitive",
+      "severity": "Severe"
+    },
     "plan": {
-      "name": "Oil-Pigment Balance Plan",
-      "duration_weeks": 10,
+      "name": "Barrier Repair Plan 11",
+      "duration_weeks": 8,
       "phases": [
-        {"week": 1, "goal": "Inflammation control", "description": "Reduce oil-driven inflammatory triggers."},
-        {"week": 3, "goal": "Spot fading", "description": "Use pigment-corrective active while controlling sebum."},
-        {"week": 7, "goal": "Evenness retention", "description": "Maintain even tone and prevent UV rebound."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Trigger reduction",
+          "description": "Remove irritants and rapidly reduce redness episodes."
+        },
+        {
+          "week": 3,
+          "phase": "Phase 2",
+          "goal": "Tolerance rebuilding",
+          "description": "Add soothing active support with low-frequency schedule."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 3",
+          "goal": "Stability maintenance",
+          "description": "Sustain comfort and reduce flare recurrence risk."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Purifying Foam Wash", "role": "Cleanser", "phase": "Phase 1", "reason": "Controls excess sebum to reduce inflammatory triggers."},
-      {"product_name": "Niacinamide-TXA Serum", "role": "Serum", "phase": "Phase 2", "reason": "Targets both discoloration and oil-related redness."},
-      {"product_name": "Oil-Free Recovery Gel", "role": "Moisturizer", "phase": "Phase 2", "reason": "Hydrates without adding comedogenic burden."},
-      {"product_name": "Matte Bright SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Essential for preventing persistent pigmentation."}
+    "kit": {
+      "bundle_name": "Barrier Repair Kit K",
+      "price": 1390000,
+      "products": [
+        {
+          "product_name": "Comfort Cream Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Cleanses with minimal surfactant irritation."
+        },
+        {
+          "product_name": "Ceramide-Panthenol Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports tolerance rebuilding and redness control."
+        },
+        {
+          "product_name": "Lipid Restore Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Strengthens barrier and reduces transepidermal water loss."
+        },
+        {
+          "product_name": "Mineral Calm SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Provides low-reactivity UV protection for sensitive skin."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Using random bleaching products can provoke irritation and darker marks.", "Stopping SPF during spot treatment can reverse progress."],
-    "consultation": {"user_intent": "Fade dark marks in oily skin", "recommended_action": "Combine oil control and brightening with strict daytime protection."}
+    "consultation": {
+      "user_intent": "Reduce redness and improve tolerance.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "new",
+      "recommended_kit": "Barrier Repair Kit K",
+      "discount_offer": 8,
+      "urgency_message": "Complete diagnosis today to secure clinician review slot."
+    },
+    "admin": {
+      "assigned_to": "Dr. N. Tran",
+      "notes": [
+        "Primary concern: Sensitive (Severe).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 12,
-    "diagnosis": {"skin_type": "Dry", "concern": "Acne", "severity": "Moderate"},
+    "user_profile": {
+      "name": "Ha Mai",
+      "age": 44,
+      "gender": "Male",
+      "lifestyle": "Gym 5 times per week with frequent sweating"
+    },
+    "diagnosis": {
+      "skin_type": "Oily",
+      "concern": "Aging",
+      "severity": "Mild"
+    },
     "plan": {
-      "name": "Dry-Acne Tolerance Plan",
-      "duration_weeks": 10,
+      "name": "Renewal & Firmness Plan 12",
+      "duration_weeks": 13,
       "phases": [
-        {"week": 1, "goal": "Barrier-first reset", "description": "Reduce irritation risk before acne actives."},
-        {"week": 4, "goal": "Lesion control", "description": "Introduce acne active with moisturizing support."},
-        {"week": 8, "goal": "Stable maintenance", "description": "Prevent flare recurrence while preserving comfort."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "Hydration baseline",
+          "description": "Restore hydration and comfort before renewal step."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 2",
+          "goal": "Renewal activation",
+          "description": "Introduce anti-aging active with tolerance monitoring."
+        },
+        {
+          "week": 10,
+          "phase": "Phase 3",
+          "goal": "Firmness retention",
+          "description": "Preserve smoothness and prevent photoaging progression."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Low-Foam Comfort Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Avoids stripping dry acne-prone skin."},
-      {"product_name": "Azelaic Repair Serum", "role": "Serum", "phase": "Phase 2", "reason": "Supports acne control with better tolerance in dry skin."},
-      {"product_name": "Ceramide Rich Lotion", "role": "Moisturizer", "phase": "Phase 2", "reason": "Reduces dryness and improves adherence to treatment."},
-      {"product_name": "Hydrating Shield SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Prevents post-acne marks and UV-triggered inflammation."}
+    "kit": {
+      "bundle_name": "Renewal & Firmness Kit L",
+      "price": 940000,
+      "products": [
+        {
+          "product_name": "Silk Balance Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Prepares skin without dehydrating surface lipids."
+        },
+        {
+          "product_name": "Retinal-Peptide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports texture renewal and fine-line softening."
+        },
+        {
+          "product_name": "Firm Support Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Maintains comfort and elasticity during active renewal."
+        },
+        {
+          "product_name": "Photoaging Guard SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Protects collagen from UV-driven breakdown."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Over-drying cleansers may worsen both acne and barrier damage.", "Skipping moisturizer can increase irritation-related breakouts."],
-    "consultation": {"user_intent": "Treat acne without dryness flare", "recommended_action": "Start barrier-first then escalate actives gradually."}
+    "consultation": {
+      "user_intent": "Improve texture and prevent further photoaging.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "consulting",
+      "recommended_kit": "Renewal & Firmness Kit L",
+      "discount_offer": 10,
+      "urgency_message": "Confirm your plan within 24h to start phase 1 on schedule."
+    },
+    "admin": {
+      "assigned_to": "Dr. M. Le",
+      "notes": [
+        "Primary concern: Aging (Mild).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 13,
-    "diagnosis": {"skin_type": "Combination", "concern": "Dark Spots", "severity": "Severe"},
+    "user_profile": {
+      "name": "Vy Phan",
+      "age": 23,
+      "gender": "Female",
+      "lifestyle": "New parent with sleep disruption"
+    },
+    "diagnosis": {
+      "skin_type": "Oily",
+      "concern": "Acne",
+      "severity": "Moderate"
+    },
     "plan": {
-      "name": "High-Intensity Pigment Protocol",
-      "duration_weeks": 14,
+      "name": "Acne Control Plan 13",
+      "duration_weeks": 11,
       "phases": [
-        {"week": 1, "goal": "Inflammation quieting", "description": "Reduce irritation potential before intensive brightening."},
-        {"week": 5, "goal": "Deep correction", "description": "Target stubborn pigmentation with controlled active layering."},
-        {"week": 11, "goal": "Relapse control", "description": "Prevent recurrence with strict photoprotection and maintenance."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Inflammation calming",
+          "description": "Calm active lesions and reduce irritation before stronger correction."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Lesion control",
+          "description": "Introduce targeted anti-acne actives with controlled escalation."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Relapse prevention",
+          "description": "Maintain clarity and prevent rebound breakouts with barrier support."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Calm Daily Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Maintains clean base with low irritant load."},
-      {"product_name": "Triple Brightening Serum", "role": "Serum", "phase": "Phase 2", "reason": "Targets stubborn melanin accumulation pathways."},
-      {"product_name": "Soothing Recovery Cream", "role": "Moisturizer", "phase": "Phase 2", "reason": "Protects tolerance during high-intensity correction."},
-      {"product_name": "Ultra Protect SPF50+", "role": "Sunscreen", "phase": "Phase 3", "reason": "Core defense against severe pigment rebound."}
+    "kit": {
+      "bundle_name": "Acne Control Kit M",
+      "price": 990000,
+      "products": [
+        {
+          "product_name": "Purifying Gel Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Controls excess sebum and debris without over-stripping."
+        },
+        {
+          "product_name": "BHA-Niacinamide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets clogged pores and inflammatory lesions."
+        },
+        {
+          "product_name": "Barrier Balance Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Supports adherence by reducing dryness and irritation."
+        },
+        {
+          "product_name": "Oil Control SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Prevents post-inflammatory dark marks from UV exposure."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Unsupervised acid layering can trigger severe inflammation and deeper pigmentation.", "Intermittent sunscreen use undermines entire correction phase."],
-    "consultation": {"user_intent": "Treat long-standing dark patches", "recommended_action": "Maintain strict correction schedule and avoid unsupervised active stacking."}
+    "consultation": {
+      "user_intent": "Stop recurring breakouts and reduce marks.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "recommended",
+      "recommended_kit": "Acne Control Kit M",
+      "discount_offer": 0,
+      "urgency_message": "Your recommended kit pricing is reserved for 48h."
+    },
+    "admin": {
+      "assigned_to": "Dr. T. Vu",
+      "notes": [
+        "Primary concern: Acne (Moderate).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 14,
-    "diagnosis": {"skin_type": "Oily", "concern": "Sensitive", "severity": "Moderate"},
+    "user_profile": {
+      "name": "Tien Vu",
+      "age": 25,
+      "gender": "Male",
+      "lifestyle": "University student under exam stress"
+    },
+    "diagnosis": {
+      "skin_type": "Dry",
+      "concern": "Dark Spots",
+      "severity": "Severe"
+    },
     "plan": {
-      "name": "Oily-Sensitive Harmonization",
-      "duration_weeks": 9,
+      "name": "Pigment Recovery Plan 14",
+      "duration_weeks": 10,
       "phases": [
-        {"week": 1, "goal": "Irritation control", "description": "Remove triggers while balancing oil output."},
-        {"week": 3, "goal": "Targeted calming", "description": "Introduce anti-redness active at low frequency."},
-        {"week": 7, "goal": "Balance retention", "description": "Keep oil and sensitivity stable long term."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "UV and barrier prep",
+          "description": "Stabilize skin and photoprotection before brightening acceleration."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Spot correction",
+          "description": "Apply pigment-corrective actives to fade uneven tone."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Tone retention",
+          "description": "Maintain results and prevent UV-triggered darkening recurrence."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Sebum-Soft Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Balances cleansing efficacy and low irritation profile."},
-      {"product_name": "Redness Control Serum", "role": "Serum", "phase": "Phase 2", "reason": "Decreases sensitivity flare while reducing reactive redness."},
-      {"product_name": "Featherweight Barrier Gel", "role": "Moisturizer", "phase": "Phase 2", "reason": "Hydrates without heavy residue on oily areas."},
-      {"product_name": "Comfort Matte SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Prevents UV-triggered irritation in reactive oily skin."}
+    "kit": {
+      "bundle_name": "Pigment Recovery Kit N",
+      "price": 1340000,
+      "products": [
+        {
+          "product_name": "Gentle Bright Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Creates low-irritation base for pigment treatment."
+        },
+        {
+          "product_name": "TXA-Vitamin C Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets uneven melanin activity and visible spots."
+        },
+        {
+          "product_name": "Hydra Calm Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 2",
+          "usage": "Both",
+          "reason": "Buffers active irritation and keeps barrier stable."
+        },
+        {
+          "product_name": "Tone Defense SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Essential to prevent pigment rebound during correction."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Using alcohol-heavy products can worsen both oil rebound and sensitivity.", "Frequent product testing increases cumulative irritation risk."],
-    "consultation": {"user_intent": "Control redness with oily T-zone", "recommended_action": "Use low-irritation balancing regimen and avoid over-cleansing."}
+    "consultation": {
+      "user_intent": "Fade uneven pigmentation safely.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "converted",
+      "recommended_kit": "Pigment Recovery Kit N",
+      "discount_offer": 5,
+      "urgency_message": "Stay on schedule for next milestone review in 7 days."
+    },
+    "admin": {
+      "assigned_to": "Dr. H. Pham",
+      "notes": [
+        "Primary concern: Dark Spots (Severe).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 15,
-    "diagnosis": {"skin_type": "Dry", "concern": "Sensitive", "severity": "Severe"},
+    "user_profile": {
+      "name": "Phuc Lam",
+      "age": 27,
+      "gender": "Female",
+      "lifestyle": "Sales role with frequent makeup and sun exposure"
+    },
+    "diagnosis": {
+      "skin_type": "Oily",
+      "concern": "Sensitive",
+      "severity": "Mild"
+    },
     "plan": {
-      "name": "Severe Barrier Rescue",
-      "duration_weeks": 12,
+      "name": "Barrier Repair Plan 15",
+      "duration_weeks": 9,
       "phases": [
-        {"week": 1, "goal": "Acute calming", "description": "Immediate reduction of stinging and redness."},
-        {"week": 4, "goal": "Repair reinforcement", "description": "Strengthen barrier lipids and tolerance resilience."},
-        {"week": 9, "goal": "Flare prevention", "description": "Minimize recurrence through stable maintenance."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Trigger reduction",
+          "description": "Remove irritants and rapidly reduce redness episodes."
+        },
+        {
+          "week": 3,
+          "phase": "Phase 2",
+          "goal": "Tolerance rebuilding",
+          "description": "Add soothing active support with low-frequency schedule."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 3",
+          "goal": "Stability maintenance",
+          "description": "Sustain comfort and reduce flare recurrence risk."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Ultra Mild Cream Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Prevents additional irritant burden during cleansing."},
-      {"product_name": "Cica-Peptide Rescue Serum", "role": "Serum", "phase": "Phase 2", "reason": "Supports anti-inflammatory recovery pathways."},
-      {"product_name": "Occlusive Repair Cream", "role": "Moisturizer", "phase": "Phase 2", "reason": "Restores barrier function and reduces transepidermal water loss."},
-      {"product_name": "Mineral Comfort SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Maintains UV protection with low reactivity profile."}
+    "kit": {
+      "bundle_name": "Barrier Repair Kit O",
+      "price": 890000,
+      "products": [
+        {
+          "product_name": "Comfort Cream Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Cleanses with minimal surfactant irritation."
+        },
+        {
+          "product_name": "Ceramide-Panthenol Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports tolerance rebuilding and redness control."
+        },
+        {
+          "product_name": "Lipid Restore Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Strengthens barrier and reduces transepidermal water loss."
+        },
+        {
+          "product_name": "Mineral Calm SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Provides low-reactivity UV protection for sensitive skin."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Using fragranced or high-acid products can trigger severe flare and peeling.", "Inconsistent barrier repair increases chronic sensitivity cycles."],
-    "consultation": {"user_intent": "Stop burning sensation quickly", "recommended_action": "Follow strict rescue protocol and avoid any non-prescribed add-ons."}
+    "consultation": {
+      "user_intent": "Reduce redness and improve tolerance.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "follow_up",
+      "recommended_kit": "Barrier Repair Kit O",
+      "discount_offer": 8,
+      "urgency_message": "Book your follow-up now to prevent relapse drift."
+    },
+    "admin": {
+      "assigned_to": "Dr. A. Nguyen",
+      "notes": [
+        "Primary concern: Sensitive (Mild).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 16,
-    "diagnosis": {"skin_type": "Combination", "concern": "Aging", "severity": "Moderate"},
+    "user_profile": {
+      "name": "My Chau",
+      "age": 29,
+      "gender": "Male",
+      "lifestyle": "Frequent traveler with climate changes"
+    },
+    "diagnosis": {
+      "skin_type": "Dry",
+      "concern": "Aging",
+      "severity": "Moderate"
+    },
     "plan": {
-      "name": "Balanced Renewal 40+",
-      "duration_weeks": 12,
+      "name": "Renewal & Firmness Plan 16",
+      "duration_weeks": 11,
       "phases": [
-        {"week": 1, "goal": "Hydration and prep", "description": "Build moisture reserve before introducing renewal actives."},
-        {"week": 5, "goal": "Line-targeted renewal", "description": "Increase anti-aging active frequency with tolerance checks."},
-        {"week": 9, "goal": "Retention", "description": "Preserve firmness and smoothness improvements."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "Hydration baseline",
+          "description": "Restore hydration and comfort before renewal step."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 2",
+          "goal": "Renewal activation",
+          "description": "Introduce anti-aging active with tolerance monitoring."
+        },
+        {
+          "week": 10,
+          "phase": "Phase 3",
+          "goal": "Firmness retention",
+          "description": "Preserve smoothness and prevent photoaging progression."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Balanced Renewal Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Creates clean base while preserving moisture."},
-      {"product_name": "Retinoid-Peptide Serum", "role": "Serum", "phase": "Phase 2", "reason": "Supports fine-line reduction and skin texture refinement."},
-      {"product_name": "Firm Support Moisturizer", "role": "Moisturizer", "phase": "Phase 2", "reason": "Buffers active irritation and supports elasticity."},
-      {"product_name": "Photoaging Defense SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Protects collagen against UV-induced degradation."}
+    "kit": {
+      "bundle_name": "Renewal & Firmness Kit P",
+      "price": 1140000,
+      "products": [
+        {
+          "product_name": "Silk Balance Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Prepares skin without dehydrating surface lipids."
+        },
+        {
+          "product_name": "Retinal-Peptide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports texture renewal and fine-line softening."
+        },
+        {
+          "product_name": "Firm Support Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Maintains comfort and elasticity during active renewal."
+        },
+        {
+          "product_name": "Photoaging Guard SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Protects collagen from UV-driven breakdown."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Overlapping too many anti-aging actives may cause redness and peeling.", "Skipping SPF speeds up photoaging and pigmentation."],
-    "consultation": {"user_intent": "Improve firmness and texture", "recommended_action": "Follow incremental active schedule with daily photoprotection."}
+    "consultation": {
+      "user_intent": "Improve texture and prevent further photoaging.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "new",
+      "recommended_kit": "Renewal & Firmness Kit P",
+      "discount_offer": 10,
+      "urgency_message": "Complete diagnosis today to secure clinician review slot."
+    },
+    "admin": {
+      "assigned_to": "Dr. N. Tran",
+      "notes": [
+        "Primary concern: Aging (Moderate).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 17,
-    "diagnosis": {"skin_type": "Oily", "concern": "Acne", "severity": "Mild"},
+    "user_profile": {
+      "name": "Kiet Duong",
+      "age": 31,
+      "gender": "Female",
+      "lifestyle": "Office work with high screen time and air-conditioned environment"
+    },
+    "diagnosis": {
+      "skin_type": "Combination",
+      "concern": "Acne",
+      "severity": "Severe"
+    },
     "plan": {
-      "name": "Maintenance Acne Prevent",
-      "duration_weeks": 8,
+      "name": "Acne Control Plan 17",
+      "duration_weeks": 12,
       "phases": [
-        {"week": 1, "goal": "Baseline control", "description": "Stabilize cleansing and hydration rhythm."},
-        {"week": 3, "goal": "Preventive active", "description": "Maintain low-dose acne preventive control."},
-        {"week": 6, "goal": "Relapse avoidance", "description": "Continue steady routine to prevent flare return."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Inflammation calming",
+          "description": "Calm active lesions and reduce irritation before stronger correction."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Lesion control",
+          "description": "Introduce targeted anti-acne actives with controlled escalation."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Relapse prevention",
+          "description": "Maintain clarity and prevent rebound breakouts with barrier support."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Daily Oil Reset Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Removes excess oil without triggering rebound."},
-      {"product_name": "Preventive BHA Serum", "role": "Serum", "phase": "Phase 2", "reason": "Maintains pore clarity in mild acne-prone skin."},
-      {"product_name": "Balance Gel Moisturizer", "role": "Moisturizer", "phase": "Phase 3", "reason": "Keeps hydration stable to support long-term adherence."},
-      {"product_name": "Clear Shield SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Reduces UV-associated inflammation and spot persistence."}
+    "kit": {
+      "bundle_name": "Acne Control Kit Q",
+      "price": 1290000,
+      "products": [
+        {
+          "product_name": "Purifying Gel Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Controls excess sebum and debris without over-stripping."
+        },
+        {
+          "product_name": "BHA-Niacinamide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets clogged pores and inflammatory lesions."
+        },
+        {
+          "product_name": "Barrier Balance Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Supports adherence by reducing dryness and irritation."
+        },
+        {
+          "product_name": "Oil Control SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Prevents post-inflammatory dark marks from UV exposure."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Irregular routine can quickly reactivate comedone cycle.", "Using pore-clogging cosmetics may trigger new breakouts."],
-    "consultation": {"user_intent": "Keep clear skin stable", "recommended_action": "Continue prevention-focused routine with minimal product changes."}
+    "consultation": {
+      "user_intent": "Stop recurring breakouts and reduce marks.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "consulting",
+      "recommended_kit": "Acne Control Kit Q",
+      "discount_offer": 0,
+      "urgency_message": "Confirm your plan within 24h to start phase 1 on schedule."
+    },
+    "admin": {
+      "assigned_to": "Dr. M. Le",
+      "notes": [
+        "Primary concern: Acne (Severe).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 18,
-    "diagnosis": {"skin_type": "Dry", "concern": "Dark Spots", "severity": "Mild"},
+    "user_profile": {
+      "name": "Yen Ngo",
+      "age": 33,
+      "gender": "Male",
+      "lifestyle": "Night-shift schedule with irregular sleep"
+    },
+    "diagnosis": {
+      "skin_type": "Oily",
+      "concern": "Dark Spots",
+      "severity": "Mild"
+    },
     "plan": {
-      "name": "Gentle Brightening Essentials",
-      "duration_weeks": 8,
+      "name": "Pigment Recovery Plan 18",
+      "duration_weeks": 11,
       "phases": [
-        {"week": 1, "goal": "Hydration prep", "description": "Improve skin comfort to support brightening compliance."},
-        {"week": 3, "goal": "Spot targeting", "description": "Apply mild brightening with low irritation strategy."},
-        {"week": 6, "goal": "Tone hold", "description": "Maintain evenness with UV discipline."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "UV and barrier prep",
+          "description": "Stabilize skin and photoprotection before brightening acceleration."
+        },
+        {
+          "week": 4,
+          "phase": "Phase 2",
+          "goal": "Spot correction",
+          "description": "Apply pigment-corrective actives to fade uneven tone."
+        },
+        {
+          "week": 8,
+          "phase": "Phase 3",
+          "goal": "Tone retention",
+          "description": "Maintain results and prevent UV-triggered darkening recurrence."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Soft Milk Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Supports comfort in dry skin while cleansing."},
-      {"product_name": "Mild Bright Serum", "role": "Serum", "phase": "Phase 2", "reason": "Gradually reduces mild dark spots with better tolerance."},
-      {"product_name": "Hydra Repair Cream", "role": "Moisturizer", "phase": "Phase 2", "reason": "Prevents dryness-related irritation from brightening steps."},
-      {"product_name": "Comfort Bright SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Prevents UV-driven re-pigmentation."}
+    "kit": {
+      "bundle_name": "Pigment Recovery Kit R",
+      "price": 840000,
+      "products": [
+        {
+          "product_name": "Gentle Bright Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Creates low-irritation base for pigment treatment."
+        },
+        {
+          "product_name": "TXA-Vitamin C Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Targets uneven melanin activity and visible spots."
+        },
+        {
+          "product_name": "Hydra Calm Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 2",
+          "usage": "Both",
+          "reason": "Buffers active irritation and keeps barrier stable."
+        },
+        {
+          "product_name": "Tone Defense SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Essential to prevent pigment rebound during correction."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Applying strong brighteners too fast can irritate and stall progress.", "Skipping SPF can make spots reappear quickly."],
-    "consultation": {"user_intent": "Even out tone gently", "recommended_action": "Use low-irritation brightening and maintain daily sunscreen."}
+    "consultation": {
+      "user_intent": "Fade uneven pigmentation safely.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "recommended",
+      "recommended_kit": "Pigment Recovery Kit R",
+      "discount_offer": 5,
+      "urgency_message": "Your recommended kit pricing is reserved for 48h."
+    },
+    "admin": {
+      "assigned_to": "Dr. T. Vu",
+      "notes": [
+        "Primary concern: Dark Spots (Mild).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 19,
-    "diagnosis": {"skin_type": "Combination", "concern": "Sensitive", "severity": "Moderate"},
+    "user_profile": {
+      "name": "Nam Tran",
+      "age": 35,
+      "gender": "Female",
+      "lifestyle": "Outdoor commuting 2 hours daily"
+    },
+    "diagnosis": {
+      "skin_type": "Dry",
+      "concern": "Sensitive",
+      "severity": "Moderate"
+    },
     "plan": {
-      "name": "Reactive Skin Control Loop",
-      "duration_weeks": 9,
+      "name": "Barrier Repair Plan 19",
+      "duration_weeks": 7,
       "phases": [
-        {"week": 1, "goal": "Calm and simplify", "description": "Reduce routine complexity and active load."},
-        {"week": 3, "goal": "Structured soothing", "description": "Introduce calming active with strict schedule."},
-        {"week": 7, "goal": "Ongoing stability", "description": "Maintain tolerance under environmental stress."}
+        {
+          "week": 1,
+          "phase": "Phase 1",
+          "goal": "Trigger reduction",
+          "description": "Remove irritants and rapidly reduce redness episodes."
+        },
+        {
+          "week": 3,
+          "phase": "Phase 2",
+          "goal": "Tolerance rebuilding",
+          "description": "Add soothing active support with low-frequency schedule."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 3",
+          "goal": "Stability maintenance",
+          "description": "Sustain comfort and reduce flare recurrence risk."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "pH-Soft Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Maintains cleaning efficacy without triggering reactivity."},
-      {"product_name": "Neuro-Soothing Serum", "role": "Serum", "phase": "Phase 2", "reason": "Helps downregulate reactive skin responses."},
-      {"product_name": "Adaptive Barrier Cream", "role": "Moisturizer", "phase": "Phase 2", "reason": "Supports resilient barrier during sensitivity cycles."},
-      {"product_name": "Calm Tone SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Protects from UV-provoked sensitivity and redness."}
+    "kit": {
+      "bundle_name": "Barrier Repair Kit S",
+      "price": 1090000,
+      "products": [
+        {
+          "product_name": "Comfort Cream Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Cleanses with minimal surfactant irritation."
+        },
+        {
+          "product_name": "Ceramide-Panthenol Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports tolerance rebuilding and redness control."
+        },
+        {
+          "product_name": "Lipid Restore Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Strengthens barrier and reduces transepidermal water loss."
+        },
+        {
+          "product_name": "Mineral Calm SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Provides low-reactivity UV protection for sensitive skin."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Random active layering can intensify flushing and discomfort.", "Stopping routine abruptly may trigger repeated sensitivity episodes."],
-    "consultation": {"user_intent": "Reduce frequent redness flare", "recommended_action": "Follow simplified schedule and avoid introducing non-prescribed actives."}
+    "consultation": {
+      "user_intent": "Reduce redness and improve tolerance.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "converted",
+      "recommended_kit": "Barrier Repair Kit S",
+      "discount_offer": 8,
+      "urgency_message": "Stay on schedule for next milestone review in 7 days."
+    },
+    "admin": {
+      "assigned_to": "Dr. H. Pham",
+      "notes": [
+        "Primary concern: Sensitive (Moderate).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   },
   {
     "id": 20,
-    "diagnosis": {"skin_type": "Oily", "concern": "Aging", "severity": "Mild"},
+    "user_profile": {
+      "name": "Diep Le",
+      "age": 37,
+      "gender": "Male",
+      "lifestyle": "Gym 5 times per week with frequent sweating"
+    },
+    "diagnosis": {
+      "skin_type": "Combination",
+      "concern": "Aging",
+      "severity": "Severe"
+    },
     "plan": {
-      "name": "Preventive Anti-Aging Oily Track",
-      "duration_weeks": 10,
+      "name": "Renewal & Firmness Plan 20",
+      "duration_weeks": 12,
       "phases": [
-        {"week": 1, "goal": "Oil and hydration balance", "description": "Establish stable base before anti-aging activation."},
-        {"week": 4, "goal": "Preventive renewal", "description": "Use moderate active for early line prevention."},
-        {"week": 8, "goal": "Protection-first maintenance", "description": "Keep improvements with consistent UV defense."}
+        {
+          "week": 2,
+          "phase": "Phase 1",
+          "goal": "Hydration baseline",
+          "description": "Restore hydration and comfort before renewal step."
+        },
+        {
+          "week": 6,
+          "phase": "Phase 2",
+          "goal": "Renewal activation",
+          "description": "Introduce anti-aging active with tolerance monitoring."
+        },
+        {
+          "week": 10,
+          "phase": "Phase 3",
+          "goal": "Firmness retention",
+          "description": "Preserve smoothness and prevent photoaging progression."
+        }
       ]
     },
-    "kit": [
-      {"product_name": "Refining Gel Cleanser", "role": "Cleanser", "phase": "Phase 1", "reason": "Manages oily residue while preserving hydration."},
-      {"product_name": "Peptide-Retinol Lite Serum", "role": "Serum", "phase": "Phase 2", "reason": "Supports early anti-aging goals with manageable irritation profile."},
-      {"product_name": "Featherweight Repair Moisturizer", "role": "Moisturizer", "phase": "Phase 2", "reason": "Maintains comfort without heavy finish."},
-      {"product_name": "UV Matrix SPF50", "role": "Sunscreen", "phase": "Phase 3", "reason": "Prevents UV-mediated aging progression."}
+    "kit": {
+      "bundle_name": "Renewal & Firmness Kit T",
+      "price": 1440000,
+      "products": [
+        {
+          "product_name": "Silk Balance Cleanser",
+          "role": "Cleanser",
+          "phase": "Phase 1",
+          "usage": "Both",
+          "reason": "Prepares skin without dehydrating surface lipids."
+        },
+        {
+          "product_name": "Retinal-Peptide Serum",
+          "role": "Serum",
+          "phase": "Phase 2",
+          "usage": "Night",
+          "reason": "Supports texture renewal and fine-line softening."
+        },
+        {
+          "product_name": "Firm Support Moisturizer",
+          "role": "Moisturizer",
+          "phase": "Phase 3",
+          "usage": "Both",
+          "reason": "Maintains comfort and elasticity during active renewal."
+        },
+        {
+          "product_name": "Photoaging Guard SPF50",
+          "role": "Sunscreen",
+          "phase": "Phase 3",
+          "usage": "Morning",
+          "reason": "Protects collagen from UV-driven breakdown."
+        }
+      ]
+    },
+    "treatment_logic": {
+      "explanation": "The kit sequence matches phase goals; changing products randomly disrupts treatment response and safety.",
+      "rules": [
+        "Use products in prescribed phase order and timing.",
+        "Do not add external actives without clinician review."
+      ]
+    },
+    "risk_if_wrong": [
+      "Incorrect substitutions may increase irritation and delay visible improvement.",
+      "Inconsistent sunscreen or maintenance use can trigger recurrence or worsening marks."
     ],
-    "risk_if_wrong": ["Combining too many anti-aging products can disrupt barrier and increase sensitivity.", "Inconsistent sunscreen weakens preventive anti-aging outcomes."],
-    "consultation": {"user_intent": "Prevent early aging signs", "recommended_action": "Keep preventive regimen consistent and prioritize daytime UV protection."}
+    "consultation": {
+      "user_intent": "Improve texture and prevent further photoaging.",
+      "recommended_action": "Follow the phase schedule strictly and complete weekly check-ins before adjustments.",
+      "script": [
+        {
+          "role": "system",
+          "message": "We assessed your profile and prepared a phase-based plan."
+        },
+        {
+          "role": "user_option",
+          "message": "I want faster results even if products feel strong."
+        },
+        {
+          "role": "system",
+          "message": "We recommend controlled escalation to avoid irritation and dropout."
+        },
+        {
+          "role": "user_option",
+          "message": "I can follow the guided schedule and check-ins."
+        }
+      ]
+    },
+    "conversion": {
+      "status": "follow_up",
+      "recommended_kit": "Renewal & Firmness Kit T",
+      "discount_offer": 10,
+      "urgency_message": "Book your follow-up now to prevent relapse drift."
+    },
+    "admin": {
+      "assigned_to": "Dr. A. Nguyen",
+      "notes": [
+        "Primary concern: Aging (Severe).",
+        "Patient responds better to structured reminders and milestone tracking."
+      ],
+      "last_action": "Reviewed diagnosis and mapped phase-specific kit.",
+      "next_action": "Send follow-up prompt and confirm start date for phase 1."
+    }
   }
 ]
