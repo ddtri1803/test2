@@ -1,77 +1,121 @@
 # System Logic & Navigation Restructure
 
-## 1) Navigation model (diagnosis-first)
+## 1) North-star product model
 
-### Primary navigation
+The platform operates as **prescribed commerce**:
 
-1. Start Diagnosis  
-   Bắt đầu chẩn đoán
-2. How It Works  
-   Quy trình điều trị
-3. Skin Journal  
-   Theo dõi tiến triển da
-4. Medical Team  
-   Đội ngũ bác sĩ
-5. Support  
-   Hỗ trợ
+- Diagnosis is the clinical gate
+- Treatment plan is the medical output
+- Kit purchase is the operational next step
 
-### Utility navigation
-
-- EN | VI language toggle
-- Secure Account  
-  Tài khoản bảo mật
-
-### Removed from top-level navigation
-
-- Shop
-- Product categories
-- Program selector cards
-- Price grid by product line
-
-These elements can exist downstream only after diagnosis and plan unlock.
+Users move forward through a guided protocol. They do not browse or assemble routines.
 
 ---
 
-## 2) Prescribed-commerce flow
+## 2) Navigation architecture (diagnosis-first)
 
-### Step A: Entry (always diagnosis CTA)
+## Public navigation
 
-All high-intent pages use the same primary action:
+1. Start Diagnosis  
+   Bắt đầu chẩn đoán da
+2. How Treatment Works  
+   Cách liệu trình hoạt động
+3. Clinical Results  
+   Kết quả lâm sàng
+4. Medical Team  
+   Đội ngũ chuyên môn
+5. Support  
+   Hỗ trợ
+
+## Utility navigation
+
+- EN | VI
+- Secure Account  
+  Tài khoản bảo mật
+
+## Removed from global nav
+
+- Shop
+- Product category listing
+- Program chooser
+- Bundle comparison table
+
+Commercial surfaces appear only after diagnosis output.
+
+---
+
+## 3) System logic (state-driven flow)
+
+## State machine
+
+1. `UNASSESSED`
+   - User has not completed clinical intake
+   - Primary action: Start Diagnosis
+2. `ASSESSED`
+   - Clinical profile computed
+   - Primary action: Unlock Treatment Plan
+3. `PLAN_UNLOCKED`
+   - Plan assigned and timeline shown
+   - Primary action: Get Prescribed Kit
+4. `KIT_ACTIVE`
+   - Treatment underway
+   - Primary action: Continue Treatment
+5. `REVIEW_DUE`
+   - Follow-up checkpoint reached
+   - Primary action: Book Follow-up Review
+
+## Guardrails
+
+- If state = `UNASSESSED`, block plan and kit pages behind diagnosis gate.
+- If state = `ASSESSED`, hide alternate plans and recommendation carousels.
+- If state = `PLAN_UNLOCKED`, show only one prescribed kit CTA.
+- Keep exactly one primary CTA per page.
+
+---
+
+## 4) End-to-end prescribed-commerce journey
+
+## Step 1 — Diagnosis entry
+
+Entry pages and high-intent sections share one primary CTA:
 
 **Start Skin Diagnosis**  
 **Bắt đầu chẩn đoán da**
 
-### Step B: Clinical intake
+## Step 2 — Clinical intake
 
-- Condition concerns
-- Symptom severity
-- Skin type history
-- Photo capture (front/left/right)
-- Contraindications and allergies
+Collect only treatment-relevant inputs:
 
-### Step C: Assessment output
+- Concern clusters (acne, pigment, redness, texture)
+- Severity + duration
+- Trigger profile (sun, hormones, irritation)
+- Skin history and current usage
+- Contraindications (pregnancy, known allergies)
+- Standardized photos (front, left, right)
 
-Users do **not** see multiple programs to choose from.
+## Step 3 — Assessment output
 
-They see:
+Output format is clinical and singular:
 
-- Diagnosed concern summary
-- Clinical objective (e.g., barrier repair + pigment control)
-- Recommended treatment cadence (8 or 12 weeks)
+- Skin condition summary
+- Clinical goals
+- Prescribed protocol length (8–12 weeks)
 
-### Step D: Plan unlock
+No plan grid. No user-side program choice.
+
+## Step 4 — Plan unlock
 
 Primary CTA:
 
 **Unlock Your Treatment Plan**  
 **Mở phác đồ điều trị dành riêng cho bạn**
 
-### Step E: Prescribed kit conversion
+## Step 5 — Kit conversion
 
-Checkout framing is medical and guided:
+Commercial intent is reframed as treatment readiness:
 
-- “Your prescribed treatment kit”
-- “Includes physician-selected actives, schedule, and follow-up checkpoints”
+- “Your prescribed treatment kit is ready”
+- “Physician-selected components, schedule, and follow-up guidance included”
 
 Primary CTA:
 
@@ -80,64 +124,69 @@ Primary CTA:
 
 ---
 
-## 3) Program page redesign (outcome-based, not selectable)
+## 5) Treatment page redesign (outcome, not selection)
 
-## Current anti-pattern to avoid
+## Anti-patterns to remove
 
-- "Choose Program A/B/C"
-- Comparison cards with “Most popular”
-- Add-to-cart by individual SKU
+- “Choose your program” cards
+- “Most popular” ranking labels
+- Add-to-cart at individual product level
 
-## New page structure
+## Required page structure
 
-1. **Clinical Goal**  
+1. Diagnosis Summary  
+   Tóm tắt chẩn đoán
+2. Clinical Objective  
    Mục tiêu điều trị lâm sàng
-2. **What Your Plan Targets**  
-   Vấn đề mà phác đồ tập trung xử lý
-3. **Protocol Timeline** (Week 1-2 / 3-6 / 7-12)
-4. **Your Prescribed Kit Includes**
-5. **Physician Monitoring & Adjustments**
-6. **Next Step CTA**: Get your prescribed kit
+3. Protocol Timeline (Week 1–2, 3–6, 7–12)
+4. Prescribed Kit Components  
+   Thành phần liệu trình theo chỉ định
+5. Monitoring & Adjustment Rules  
+   Quy tắc theo dõi và điều chỉnh
+6. Next Action: Get Your Prescribed Kit
 
-Program labels become internally clinical, not consumer-choice labels:
+## Naming model
 
-- Acne Recovery Protocol (internal)
-- Pigment Control Protocol (internal)
-- Barrier Reset Protocol (internal)
+Internal only:
 
-On UI, users only see their assigned plan name as an outcome, e.g.:
+- Acne Recovery Protocol
+- Pigment Control Protocol
+- Barrier Reset Protocol
 
-**Your Recommended Plan: Recovery Protocol**  
-**Phác đồ được khuyến nghị: Phác đồ phục hồi**
+User-facing:
+
+**Your Assigned Plan: Recovery Protocol**  
+**Phác đồ của bạn: Phác đồ phục hồi**
 
 ---
 
-## 4) Conversion architecture (subtle monetization)
+## 6) Conversion language framework
 
-## Language substitutions
+Replace retail verbs with clinical progression language:
 
 - Buy now → Get your prescribed kit
-- Choose your program → Unlock your treatment plan
+- Choose program → Unlock your treatment plan
 - Products → Clinical components
 - Cart → Treatment summary
+- Checkout → Confirm treatment start
 
 ## Conversion checkpoints
 
 1. Post-diagnosis summary
-2. Plan details panel
-3. Progress setup screen
-4. Follow-up reminder screens
+2. Plan details page
+3. Treatment start confirmation
+4. Follow-up milestone prompt
 
-Each checkpoint contains one primary action only, reducing choice friction and preserving clinical authority.
+Each checkpoint keeps one primary action and one confidence-supporting explanation.
 
 ---
 
-## 5) UX tone rules
+## 7) UX tone and interaction rules
 
-- Minimal text blocks
-- Clinical verbs (assess, prescribe, monitor, adjust)
-- Soft reassurance without marketing hype
-- Avoid discounts/flash sale language
-- Avoid “shopping” metaphors
+- Clinical, concise, calm
+- Premium layout with high whitespace and clear hierarchy
+- Evidence-forward copy, not promotional copy
+- No sale urgency, discount language, or “shop now” framing
+- Reassure users with process clarity (assess → prescribe → monitor → adjust)
 
-This ensures experience remains premium, medical, and conversion-focused.
+This preserves medical credibility while maintaining subtle, high-intent conversion.

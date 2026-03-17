@@ -1,26 +1,26 @@
 # Bilingual UI Copy (English + Vietnamese)
 
-Formatting rule used throughout:
+Usage rule:
 
 - English first
-- Vietnamese directly below
-- Native tone in each language (not literal word-by-word)
+- Vietnamese line directly below
+- Native tone in each language (not literal translation)
 
 ---
 
 ## 1) Navbar
 
 Start Diagnosis  
-Bắt đầu chẩn đoán
+Bắt đầu chẩn đoán da
 
-How It Works  
-Quy trình điều trị
+How Treatment Works  
+Cách liệu trình hoạt động
 
-Skin Journal  
-Theo dõi tiến triển da
+Clinical Results  
+Kết quả lâm sàng
 
 Medical Team  
-Đội ngũ bác sĩ
+Đội ngũ chuyên môn
 
 Support  
 Hỗ trợ
@@ -30,13 +30,26 @@ Tài khoản bảo mật
 
 ---
 
-## 2) Homepage hero
+## 2) Primary diagnosis CTAs
 
-Clinical skincare, prescribed for your skin condition  
-Giải pháp da liễu theo chỉ định, phù hợp với tình trạng da của bạn
+Start Skin Diagnosis  
+Bắt đầu chẩn đoán da
 
-Begin with a dermatologist-guided diagnosis to receive your personalized treatment plan.  
-Bắt đầu bằng bước chẩn đoán có hướng dẫn chuyên môn để nhận phác đồ điều trị cá nhân hóa.
+Begin Clinical Assessment  
+Bắt đầu đánh giá lâm sàng
+
+Continue Your Diagnosis  
+Tiếp tục bước chẩn đoán
+
+---
+
+## 3) Homepage hero
+
+Dermatology treatment, prescribed to your skin profile  
+Giải pháp điều trị da liễu được chỉ định theo hồ sơ làn da của bạn
+
+Complete a guided diagnosis first. Your treatment plan is assigned based on clinical findings.  
+Hãy hoàn tất chẩn đoán có hướng dẫn trước. Phác đồ sẽ được chỉ định dựa trên kết quả đánh giá lâm sàng.
 
 Primary CTA: Start Skin Diagnosis  
 CTA chính: Bắt đầu chẩn đoán da
@@ -46,62 +59,74 @@ CTA phụ: Xem cách liệu trình hoạt động
 
 ---
 
-## 3) Diagnosis entry points
+## 4) Diagnosis reassurance block
 
-### Sticky CTA (site-wide)
+Your treatment is prescribed only after assessment.  
+Liệu trình của bạn chỉ được chỉ định sau khi hoàn tất đánh giá.
 
-Start Skin Diagnosis  
-Bắt đầu chẩn đoán da
+No product guessing. No routine building on your own.  
+Không cần tự đoán sản phẩm. Không cần tự xây dựng quy trình chăm sóc.
 
-### Mid-page reassurance block
-
-Your skin is assessed before any treatment is recommended.  
-Tình trạng da của bạn sẽ được đánh giá trước khi đưa ra chỉ định điều trị.
-
-No product browsing. No guesswork.  
-Không cần tự chọn sản phẩm. Không cần phỏng đoán.
-
-CTA: Begin Assessment  
-CTA: Bắt đầu đánh giá
+CTA: Begin Clinical Assessment  
+CTA: Bắt đầu đánh giá lâm sàng
 
 ---
 
-## 4) Program / plan description (post-diagnosis)
+## 5) Post-diagnosis plan section
 
-Your recommended plan is built around your diagnosis profile.  
-Phác đồ được đề xuất được xây dựng dựa trên hồ sơ chẩn đoán da của bạn.
+Your plan is assigned to match your diagnosed condition and tolerance profile.  
+Phác đồ của bạn được chỉ định để phù hợp với tình trạng da và mức độ đáp ứng của da.
 
-This protocol targets active concerns while protecting skin barrier stability.  
-Liệu trình tập trung xử lý vấn đề hiện tại đồng thời duy trì độ ổn định hàng rào bảo vệ da.
+This protocol addresses active concerns while protecting skin-barrier stability.  
+Liệu trình tập trung xử lý vấn đề hiện tại đồng thời bảo toàn độ ổn định của hàng rào bảo vệ da.
 
-Treatment duration: 12 weeks with scheduled review checkpoints.  
-Thời gian điều trị: 12 tuần, kèm các mốc tái đánh giá định kỳ.
+Treatment window: 12 weeks with scheduled medical review milestones.  
+Liệu trình kéo dài 12 tuần, kèm các mốc tái đánh giá chuyên môn định kỳ.
 
 CTA: Unlock Your Treatment Plan  
 CTA: Mở phác đồ điều trị dành riêng cho bạn
 
 ---
 
-## 5) Kit conversion section
+## 6) Prescribed kit conversion section
 
-Your prescribed treatment kit is now ready.  
-Bộ liệu trình điều trị theo chỉ định của bạn đã sẵn sàng.
+Your prescribed treatment kit is ready to start.  
+Bộ liệu trình điều trị theo chỉ định đã sẵn sàng để bắt đầu.
 
-Includes clinician-selected formulas, usage schedule, and follow-up guidance.  
-Bao gồm sản phẩm được chuyên gia chọn lọc, lịch sử dụng rõ ràng và hướng dẫn theo dõi tiến triển.
+Includes clinician-selected components, usage timing, and follow-up instructions.  
+Bao gồm các thành phần được chuyên gia lựa chọn, lịch dùng cụ thể và hướng dẫn theo dõi sau điều trị.
 
 CTA: Get Your Prescribed Kit  
 CTA: Nhận liệu trình điều trị phù hợp
 
 ---
 
-## 6) Follow-up and retention language
+## 7) Follow-up lifecycle copy
 
-Track your response and update your plan at each review milestone.  
-Theo dõi đáp ứng của da và cập nhật phác đồ ở từng mốc tái khám.
+Track skin response at each review milestone and update protocol when needed.  
+Theo dõi đáp ứng của da ở từng mốc tái đánh giá và cập nhật phác đồ khi cần thiết.
 
 Continue Treatment  
 Tiếp tục liệu trình
 
 Book Follow-up Review  
 Đặt lịch tái đánh giá
+
+Update My Treatment Plan  
+Cập nhật phác đồ điều trị
+
+---
+
+## 8) Microcopy substitutions (global)
+
+Get your prescribed kit  
+Nhận liệu trình điều trị phù hợp
+
+Unlock your treatment plan  
+Mở phác đồ điều trị dành riêng cho bạn
+
+Treatment summary  
+Tóm tắt liệu trình
+
+Confirm treatment start  
+Xác nhận bắt đầu liệu trình

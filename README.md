@@ -1,15 +1,21 @@
 # Dermatology Prescribed-Commerce Platform
 
-This repository defines the product structure, UX logic, and bilingual UI copy for a dermatology treatment experience where **diagnosis drives treatment** and treatment kits are positioned as prescribed outcomes.
+This repository contains a **diagnosis-first UX blueprint** and **bilingual (English + Vietnamese) clinical UI copy** for a dermatology treatment experience.
 
-## Product pillars
+The operating principle is prescribed commerce:
 
-1. Medical credibility first (diagnosis-led)
-2. Conversion through guided prescription (not product browsing)
-3. Bilingual by design (English + Vietnamese)
-4. Premium, clinical, minimal interface
+- diagnose first
+- assign a treatment plan
+- convert through a prescribed kit (not product browsing)
 
-## Contents
+## Files
 
-- `docs/system-logic.md`: Navigation and platform logic model
-- `docs/ui-copy.md`: Bilingual UI copy for navbar, CTAs, diagnosis entry, and treatment program sections
+- `docs/system-logic.md` — navigation architecture, state logic, treatment-page structure, and conversion framework
+- `docs/ui-copy.md` — bilingual UI copy for navbar, diagnosis entry points, CTAs, plan pages, and follow-up lifecycle
+
+## Experience goals
+
+1. Medical credibility through diagnosis-led flow
+2. Premium, minimal, clinical tone
+3. Subtle conversion without retail framing
+4. Natural bilingual communication in EN + VI
