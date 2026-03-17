@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Kit Theme</title><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="../assets/css/theme.css" /></head>
+<body data-state="diagnosed" class="text-slate-800">
+<header class="border-b border-slate-200 bg-white"><div class="max-w-6xl mx-auto px-6 py-4 flex justify-between"><a class="font-semibold" href="index.html">Frontend Theme</a><nav class="text-sm space-x-3"><a href="diagnosis.html">Diagnosis</a><a href="plan.html">Plan</a><a href="kit.html" class="font-medium">Kit</a><a href="monitoring.html">Monitoring</a></nav></div></header>
+<main class="max-w-6xl mx-auto px-6 py-8 space-y-6">
+<section class="card p-6 envi"><h1 class="text-2xl font-semibold">Prescribed Kit</h1><p class="vi">Bộ liệu trình theo chỉ định</p><p class="mt-3 text-slate-600">Kit content is physician-selected from your assigned plan. No shopping catalog is shown.</p><p class="vi">Thành phần bộ liệu trình được chọn theo phác đồ chỉ định. Không hiển thị danh mục mua sắm tự do.</p></section>
+<section class="card p-6 envi" data-visible-states="diagnosed"><h2 class="text-lg font-semibold">Get Your Prescribed Kit</h2><p class="vi">Nhận liệu trình điều trị phù hợp</p><button class="mt-3 px-4 py-2 rounded-lg bg-slate-900 text-white">Get Prescribed Kit</button></section>
+<section class="card p-6 envi hidden" data-visible-states="active-treatment"><h2 class="text-lg font-semibold">Kit Activated</h2><p class="vi">Liệu trình đã kích hoạt</p><p>Usage schedule and monitoring milestones are now available.</p><p class="vi">Lịch sử dụng và các mốc theo dõi hiện đã sẵn sàng.</p></section>
+<div class="flex gap-2"><button data-set-state="diagnosed" class="px-3 py-2 rounded-lg border">diagnosed</button><button data-set-state="active-treatment" class="px-3 py-2 rounded-lg border">active-treatment</button></div>
+</main><script src="../assets/js/state.js"></script></body></html>

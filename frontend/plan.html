@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Plan Theme</title><script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="../assets/css/theme.css" /></head>
+<body data-state="diagnosed" class="text-slate-800">
+<header class="border-b border-slate-200 bg-white"><div class="max-w-6xl mx-auto px-6 py-4 flex justify-between"><a class="font-semibold" href="index.html">Frontend Theme</a><nav class="text-sm space-x-3"><a href="diagnosis.html">Diagnosis</a><a href="plan.html" class="font-medium">Plan</a><a href="kit.html">Kit</a><a href="monitoring.html">Monitoring</a></nav></div></header>
+<main class="max-w-6xl mx-auto px-6 py-8 space-y-6">
+<section class="card p-6 envi"><h1 class="text-2xl font-semibold">Assigned Treatment Plan</h1><p class="vi">Phác đồ điều trị được chỉ định</p><p class="mt-3 text-slate-600">No direct program selection. One assigned protocol per diagnosis profile.</p><p class="vi">Không có bước tự chọn chương trình. Mỗi hồ sơ chẩn đoán sẽ có một phác đồ phù hợp.</p></section>
+<section class="grid md:grid-cols-3 gap-4">
+<article class="card p-4 envi"><h2 class="font-semibold">Diagnosis Summary</h2><p class="vi">Tóm tắt chẩn đoán</p></article>
+<article class="card p-4 envi"><h2 class="font-semibold">Clinical Objective</h2><p class="vi">Mục tiêu điều trị</p></article>
+<article class="card p-4 envi"><h2 class="font-semibold">12-week Timeline</h2><p class="vi">Tiến trình 12 tuần</p></article>
+</section>
+<section class="card p-6 envi" data-visible-states="diagnosed"><h2 class="text-lg font-semibold">Unlock Your Treatment Plan</h2><p class="vi">Mở phác đồ điều trị dành riêng cho bạn</p><button class="mt-3 px-4 py-2 rounded-lg bg-slate-900 text-white">Unlock Plan</button></section>
+<section class="card p-6 envi hidden" data-visible-states="active-treatment"><h2 class="text-lg font-semibold">Plan Active</h2><p class="vi">Phác đồ đang hoạt động</p></section>
+<div class="flex gap-2"><button data-set-state="diagnosed" class="px-3 py-2 rounded-lg border">diagnosed</button><button data-set-state="active-treatment" class="px-3 py-2 rounded-lg border">active-treatment</button></div>
+</main><script src="../assets/js/state.js"></script></body></html>

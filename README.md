@@ -1,24 +1,32 @@
-# Dermatology Prescribed-Commerce Platform
+# Dermatology Frontend Theme System
 
-This repository contains a **diagnosis-first UX blueprint** and **bilingual (English + Vietnamese) clinical UI copy** for a dermatology treatment experience.
+This repository provides a **frontend-only theme foundation** for a prescribed dermatology treatment platform.
 
-The operating principle is prescribed commerce:
+Flow reflected in UI:
 
-- diagnose first
-- assign a treatment plan
-- convert through a prescribed kit (not product browsing)
+Diagnosis → Assigned Plan → Treatment Kit → Monitoring
 
-## Files
+## Structure
 
-- `index.html` — single-page diagnosis-first website structure with bilingual EN/VI sections and conversion flow
-- `styles.css` — premium clinical visual style (minimal, non-ecommerce)
-- `app.js` — guided state logic (diagnosis → plan unlock → prescribed kit)
-- `docs/system-logic.md` — navigation architecture, state logic, treatment-page structure, and conversion framework
-- `docs/ui-copy.md` — bilingual UI copy for navbar, diagnosis entry points, CTAs, plan pages, and follow-up lifecycle
+- `frontend/`
+  - `index.html`
+  - `diagnosis.html`
+  - `plan.html`
+  - `kit.html`
+  - `monitoring.html`
+- `admin/`
+  - `dashboard.html`
+  - `diagnosis.html`
+  - `plan-builder.html`
+  - `kit-builder.html`
+  - `monitoring.html`
+- `assets/`
+  - `css/theme.css`
+  - `js/state.js`
 
-## Experience goals
+## Implementation notes
 
-1. Medical credibility through diagnosis-led flow
-2. Premium, minimal, clinical tone
-3. Subtle conversion without retail framing
-4. Natural bilingual communication in EN + VI
+- Plain HTML + TailwindCSS (CDN) + minimal vanilla JS
+- State simulation via `body[data-state="pre-diagnosis|diagnosed|active-treatment"]`
+- Bilingual content with English line first and Vietnamese line below
+- Minimal, clinical, premium visual style

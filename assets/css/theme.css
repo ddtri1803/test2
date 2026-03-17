@@ -1,0 +1,24 @@
+/* Minimal shared theme utilities on top of Tailwind */
+:root {
+  --clinical-bg: #f5f7fa;
+}
+body {
+  background: var(--clinical-bg);
+}
+.envi .vi {
+  color: rgb(100 116 139);
+  margin-top: 0.125rem;
+}
+.state-chip {
+  border-radius: 9999px;
+  border: 1px solid rgb(203 213 225);
+  background: white;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: rgb(51 65 85);
+}
+.card {
+  border: 1px solid rgb(226 232 240);
+  border-radius: 0.75rem;
+  background: white;
+}
