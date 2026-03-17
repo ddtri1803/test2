@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dermatology Prescribed Care</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="en">Dermatology Prescribed Care</div>
+        <div class="vi">Nền tảng điều trị da liễu theo chỉ định</div>
+      </div>
+      <nav class="nav">
+        <a href="#diagnosis" class="bilingual"><span class="en">Start Diagnosis</span><span class="vi">Bắt đầu chẩn đoán da</span></a>
+        <a href="#how" class="bilingual"><span class="en">How Treatment Works</span><span class="vi">Cách liệu trình hoạt động</span></a>
+        <a href="#plan" class="bilingual"><span class="en">Assigned Plan</span><span class="vi">Phác đồ được chỉ định</span></a>
+        <a href="#team" class="bilingual"><span class="en">Medical Team</span><span class="vi">Đội ngũ chuyên môn</span></a>
+      </nav>
+      <div class="lang">EN | VI</div>
+    </header>
+
+    <main class="container">
+      <section class="hero card" id="diagnosis">
+        <p class="eyebrow bilingual"><span class="en">Diagnosis-led treatment</span><span class="vi">Điều trị bắt đầu từ chẩn đoán</span></p>
+        <h1 class="bilingual"><span class="en">Clinical skincare, prescribed to your skin condition</span><span class="vi">Giải pháp da liễu được chỉ định theo tình trạng da của bạn</span></h1>
+        <p class="bilingual">
+          <span class="en">Begin with a guided skin assessment. Your treatment plan is assigned from findings, then prepared as one prescribed kit.</span>
+          <span class="vi">Bắt đầu bằng đánh giá da có hướng dẫn. Phác đồ điều trị sẽ được chỉ định theo kết quả và chuẩn bị thành một bộ liệu trình phù hợp.</span>
+        </p>
+        <div class="actions">
+          <button id="startDiagnosis" class="btn btn-primary bilingual"><span class="en">Start Skin Diagnosis</span><span class="vi">Bắt đầu chẩn đoán da</span></button>
+          <a href="#how" class="btn btn-secondary bilingual"><span class="en">See How Treatment Works</span><span class="vi">Xem cách liệu trình hoạt động</span></a>
+        </div>
+      </section>
+
+      <section class="card" id="how">
+        <h2 class="bilingual"><span class="en">Guided Clinical Flow</span><span class="vi">Lộ trình điều trị có hướng dẫn chuyên môn</span></h2>
+        <ol class="flow">
+          <li class="bilingual"><span class="en">Assess skin profile</span><span class="vi">Đánh giá hồ sơ làn da</span></li>
+          <li class="bilingual"><span class="en">Assign treatment protocol</span><span class="vi">Chỉ định phác đồ điều trị</span></li>
+          <li class="bilingual"><span class="en">Prepare prescribed kit</span><span class="vi">Chuẩn bị bộ liệu trình theo chỉ định</span></li>
+          <li class="bilingual"><span class="en">Monitor and adjust at follow-up</span><span class="vi">Theo dõi và điều chỉnh ở mỗi lần tái đánh giá</span></li>
+        </ol>
+      </section>
+
+      <section class="card" id="plan">
+        <h2 class="bilingual"><span class="en">Your Assigned Plan</span><span class="vi">Phác đồ điều trị dành cho bạn</span></h2>
+        <p class="bilingual"><span class="en">Programs are not user-selected. Your plan is assigned after diagnosis to match severity, tolerance, and clinical goals.</span><span class="vi">Bạn không cần tự chọn chương trình. Phác đồ được chỉ định sau chẩn đoán để phù hợp mức độ vấn đề, khả năng đáp ứng và mục tiêu điều trị.</span></p>
+
+        <div class="plan-grid">
+          <article>
+            <h3 class="bilingual"><span class="en">Diagnosis Summary</span><span class="vi">Tóm tắt chẩn đoán</span></h3>
+            <p class="bilingual"><span class="en">Inflammatory acne with post-inflammatory pigmentation.</span><span class="vi">Mụn viêm kèm thâm sau viêm.</span></p>
+          </article>
+          <article>
+            <h3 class="bilingual"><span class="en">Clinical Objective</span><span class="vi">Mục tiêu điều trị</span></h3>
+            <p class="bilingual"><span class="en">Calm active lesions, stabilize barrier, and reduce pigment recurrence.</span><span class="vi">Giảm tổn thương viêm, ổn định hàng rào bảo vệ da và hạn chế thâm tái phát.</span></p>
+          </article>
+          <article>
+            <h3 class="bilingual"><span class="en">Protocol Timeline</span><span class="vi">Tiến trình liệu trình</span></h3>
+            <p class="bilingual"><span class="en">Week 1–2 reset, week 3–6 control, week 7–12 consolidation.</span><span class="vi">Tuần 1–2 phục hồi nền da, tuần 3–6 kiểm soát tổn thương, tuần 7–12 củng cố kết quả.</span></p>
+          </article>
+        </div>
+
+        <div class="actions">
+          <button id="unlockPlan" class="btn btn-primary bilingual"><span class="en">Unlock Your Treatment Plan</span><span class="vi">Mở phác đồ điều trị dành riêng cho bạn</span></button>
+        </div>
+      </section>
+
+      <section class="card" id="conversion">
+        <h2 class="bilingual"><span class="en">Prescribed Kit Readiness</span><span class="vi">Trạng thái bộ liệu trình theo chỉ định</span></h2>
+        <p id="statusText" class="status bilingual"><span class="en">Awaiting diagnosis completion.</span><span class="vi">Đang chờ hoàn tất bước chẩn đoán.</span></p>
+        <div class="kit">
+          <p class="bilingual"><span class="en">Includes clinician-selected components, timing instructions, and review checkpoints.</span><span class="vi">Bao gồm các thành phần được chuyên gia lựa chọn, hướng dẫn thời điểm sử dụng và mốc tái đánh giá.</span></p>
+        </div>
+        <div class="actions">
+          <button id="getKit" class="btn btn-primary bilingual" disabled><span class="en">Get Your Prescribed Kit</span><span class="vi">Nhận liệu trình điều trị phù hợp</span></button>
+        </div>
+      </section>
+
+      <section class="card" id="team">
+        <h2 class="bilingual"><span class="en">Medical Monitoring</span><span class="vi">Theo dõi chuyên môn</span></h2>
+        <p class="bilingual"><span class="en">At each review milestone, your protocol can be adjusted by the medical team based on skin response.</span><span class="vi">Ở mỗi mốc tái đánh giá, phác đồ có thể được đội ngũ chuyên môn điều chỉnh theo đáp ứng thực tế của da.</span></p>
+      </section>
+    </main>
+
+    <div class="sticky-cta">
+      <button class="btn btn-primary bilingual" id="stickyStart"><span class="en">Start Skin Diagnosis</span><span class="vi">Bắt đầu chẩn đoán da</span></button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

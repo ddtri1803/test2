@@ -10,6 +10,9 @@ The operating principle is prescribed commerce:
 
 ## Files
 
+- `index.html` — single-page diagnosis-first website structure with bilingual EN/VI sections and conversion flow
+- `styles.css` — premium clinical visual style (minimal, non-ecommerce)
+- `app.js` — guided state logic (diagnosis → plan unlock → prescribed kit)
 - `docs/system-logic.md` — navigation architecture, state logic, treatment-page structure, and conversion framework
 - `docs/ui-copy.md` — bilingual UI copy for navbar, diagnosis entry points, CTAs, plan pages, and follow-up lifecycle
 
