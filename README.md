@@ -1,34 +1,23 @@
-# Dermatology Frontend Theme System
+# Interactive Dermatology Treatment Experience
 
-This repository provides a **frontend-only theme foundation** for a prescribed dermatology treatment platform.
+Single-page interactive prototype built with:
+- HTML
+- TailwindCSS (CDN)
+- Vanilla JavaScript
 
-Flow reflected in UI:
+## Run
+Open `index.html` in a browser, or serve locally:
 
-Diagnosis → Assigned Plan → Treatment Kit → Monitoring
+```bash
+python -m http.server 4173
+```
 
-## Structure
+## Interaction Flow
+1. Diagnosis quiz (one question at a time)
+2. Chat-like consultation (quick replies + final form)
+3. Interactive treatment timeline
+4. Interactive product roles explorer
+5. Risk simulation (wrong behavior consequences)
+6. Final prescribed-system summary
 
-- `frontend/`
-  - `index.html`
-  - `diagnosis.html`
-  - `plan.html`
-  - `kit.html`
-  - `monitoring.html`
-- `admin/`
-  - `dashboard.html`
-  - `diagnosis.html`
-  - `plan-builder.html`
-  - `kit-builder.html`
-  - `monitoring.html`
-- `assets/`
-  - `css/theme.css`
-  - `js/state.js`
-  - `js/interactive.js`
-
-## Implementation notes
-
-- Plain HTML + TailwindCSS (CDN) + minimal vanilla JS
-- State simulation via `body[data-state="pre-diagnosis|diagnosed|active-treatment"]`
-- Interactive multi-step journey in `frontend/index.html` (quiz, chat, clickable timeline, kit role explorer, risk simulator)
-- Bilingual content with English line first and Vietnamese line below
-- Minimal, clinical, premium visual style
+The UI is designed so users must click through progressive states (10+ interactions) to complete the experience.

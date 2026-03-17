@@ -1,95 +1,166 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dermatology Prescribed Care</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="brand">
-        <div class="en">Dermatology Prescribed Care</div>
-        <div class="vi">Nền tảng điều trị da liễu theo chỉ định</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescribed Dermatology Interactive Flow</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <main class="max-w-5xl mx-auto px-6 py-8 space-y-5">
+    <section class="bg-white border border-slate-200 rounded-xl p-6">
+      <div class="flex flex-wrap gap-3 items-center justify-between">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-semibold">Interactive Prescribed Treatment Journey</h1>
+          <p class="text-slate-500">Hành trình điều trị theo chỉ định với tương tác liên tục</p>
+        </div>
+        <div class="text-sm px-3 py-1 rounded-full border border-slate-300 bg-white">Clicks: <span id="clicks">0</span></div>
       </div>
-      <nav class="nav">
-        <a href="#diagnosis" class="bilingual"><span class="en">Start Diagnosis</span><span class="vi">Bắt đầu chẩn đoán da</span></a>
-        <a href="#how" class="bilingual"><span class="en">How Treatment Works</span><span class="vi">Cách liệu trình hoạt động</span></a>
-        <a href="#plan" class="bilingual"><span class="en">Assigned Plan</span><span class="vi">Phác đồ được chỉ định</span></a>
-        <a href="#team" class="bilingual"><span class="en">Medical Team</span><span class="vi">Đội ngũ chuyên môn</span></a>
-      </nav>
-      <div class="lang">EN | VI</div>
-    </header>
 
-    <main class="container">
-      <section class="hero card" id="diagnosis">
-        <p class="eyebrow bilingual"><span class="en">Diagnosis-led treatment</span><span class="vi">Điều trị bắt đầu từ chẩn đoán</span></p>
-        <h1 class="bilingual"><span class="en">Clinical skincare, prescribed to your skin condition</span><span class="vi">Giải pháp da liễu được chỉ định theo tình trạng da của bạn</span></h1>
-        <p class="bilingual">
-          <span class="en">Begin with a guided skin assessment. Your treatment plan is assigned from findings, then prepared as one prescribed kit.</span>
-          <span class="vi">Bắt đầu bằng đánh giá da có hướng dẫn. Phác đồ điều trị sẽ được chỉ định theo kết quả và chuẩn bị thành một bộ liệu trình phù hợp.</span>
-        </p>
-        <div class="actions">
-          <button id="startDiagnosis" class="btn btn-primary bilingual"><span class="en">Start Skin Diagnosis</span><span class="vi">Bắt đầu chẩn đoán da</span></button>
-          <a href="#how" class="btn btn-secondary bilingual"><span class="en">See How Treatment Works</span><span class="vi">Xem cách liệu trình hoạt động</span></a>
-        </div>
-      </section>
+      <div class="mt-5 grid grid-cols-2 md:grid-cols-6 gap-2 text-xs" id="stepBtns"></div>
+      <div class="h-2 mt-3 rounded-full bg-slate-100 overflow-hidden">
+        <div id="progress" class="h-full bg-slate-900 transition-all duration-300" style="width:16.67%"></div>
+      </div>
+    </section>
 
-      <section class="card" id="how">
-        <h2 class="bilingual"><span class="en">Guided Clinical Flow</span><span class="vi">Lộ trình điều trị có hướng dẫn chuyên môn</span></h2>
-        <ol class="flow">
-          <li class="bilingual"><span class="en">Assess skin profile</span><span class="vi">Đánh giá hồ sơ làn da</span></li>
-          <li class="bilingual"><span class="en">Assign treatment protocol</span><span class="vi">Chỉ định phác đồ điều trị</span></li>
-          <li class="bilingual"><span class="en">Prepare prescribed kit</span><span class="vi">Chuẩn bị bộ liệu trình theo chỉ định</span></li>
-          <li class="bilingual"><span class="en">Monitor and adjust at follow-up</span><span class="vi">Theo dõi và điều chỉnh ở mỗi lần tái đánh giá</span></li>
-        </ol>
-      </section>
+    <section id="panel1" class="panel bg-white border border-slate-200 rounded-xl p-6 transition-all duration-300">
+      <h2 class="text-xl font-semibold">1) Diagnosis Quiz</h2>
+      <p class="text-slate-500">Trắc nghiệm chẩn đoán từng câu hỏi</p>
+      <div class="mt-4 border rounded-lg p-4">
+        <p id="qText" class="font-medium"></p>
+        <div id="qAnswers" class="mt-3 grid gap-2"></div>
+      </div>
+      <div class="text-right mt-4">
+        <button id="next2" disabled class="px-4 py-2 rounded-lg bg-slate-900 text-white disabled:opacity-40">Continue</button>
+      </div>
+    </section>
 
-      <section class="card" id="plan">
-        <h2 class="bilingual"><span class="en">Your Assigned Plan</span><span class="vi">Phác đồ điều trị dành cho bạn</span></h2>
-        <p class="bilingual"><span class="en">Programs are not user-selected. Your plan is assigned after diagnosis to match severity, tolerance, and clinical goals.</span><span class="vi">Bạn không cần tự chọn chương trình. Phác đồ được chỉ định sau chẩn đoán để phù hợp mức độ vấn đề, khả năng đáp ứng và mục tiêu điều trị.</span></p>
+    <section id="panel2" class="panel hidden opacity-0 bg-white border border-slate-200 rounded-xl p-6 transition-all duration-300">
+      <h2 class="text-xl font-semibold">2) Chat-like Consultation</h2>
+      <p class="text-slate-500">Tư vấn dạng hội thoại + phản hồi nhanh</p>
+      <div id="chat" class="mt-4 h-64 overflow-auto bg-slate-50 border rounded-lg p-3 space-y-2"></div>
+      <div id="replies" class="mt-3 flex flex-wrap gap-2"></div>
+      <form id="endForm" class="hidden mt-4 grid md:grid-cols-2 gap-3 text-sm border rounded-lg p-3">
+        <input required class="border rounded px-3 py-2" placeholder="Current routine / Quy trình hiện tại" />
+        <input required class="border rounded px-3 py-2" placeholder="Sensitivity notes / Ghi chú nhạy cảm" />
+        <button class="md:col-span-2 px-4 py-2 rounded-lg bg-slate-900 text-white">Submit Consultation</button>
+      </form>
+      <div class="text-right mt-4">
+        <button id="next3" disabled class="px-4 py-2 rounded-lg bg-slate-900 text-white disabled:opacity-40">Continue</button>
+      </div>
+    </section>
 
-        <div class="plan-grid">
-          <article>
-            <h3 class="bilingual"><span class="en">Diagnosis Summary</span><span class="vi">Tóm tắt chẩn đoán</span></h3>
-            <p class="bilingual"><span class="en">Inflammatory acne with post-inflammatory pigmentation.</span><span class="vi">Mụn viêm kèm thâm sau viêm.</span></p>
-          </article>
-          <article>
-            <h3 class="bilingual"><span class="en">Clinical Objective</span><span class="vi">Mục tiêu điều trị</span></h3>
-            <p class="bilingual"><span class="en">Calm active lesions, stabilize barrier, and reduce pigment recurrence.</span><span class="vi">Giảm tổn thương viêm, ổn định hàng rào bảo vệ da và hạn chế thâm tái phát.</span></p>
-          </article>
-          <article>
-            <h3 class="bilingual"><span class="en">Protocol Timeline</span><span class="vi">Tiến trình liệu trình</span></h3>
-            <p class="bilingual"><span class="en">Week 1–2 reset, week 3–6 control, week 7–12 consolidation.</span><span class="vi">Tuần 1–2 phục hồi nền da, tuần 3–6 kiểm soát tổn thương, tuần 7–12 củng cố kết quả.</span></p>
-          </article>
-        </div>
+    <section id="panel3" class="panel hidden opacity-0 bg-white border border-slate-200 rounded-xl p-6 transition-all duration-300">
+      <h2 class="text-xl font-semibold">3) Interactive Plan Timeline</h2>
+      <p class="text-slate-500">Bấm vào từng giai đoạn để xem chi tiết</p>
+      <div class="mt-4 grid md:grid-cols-3 gap-3" id="phases"></div>
+      <div id="phaseDetail" class="hidden mt-3 border rounded-lg p-3"></div>
+      <div class="text-right mt-4">
+        <button id="next4" disabled class="px-4 py-2 rounded-lg bg-slate-900 text-white disabled:opacity-40">Continue</button>
+      </div>
+    </section>
 
-        <div class="actions">
-          <button id="unlockPlan" class="btn btn-primary bilingual"><span class="en">Unlock Your Treatment Plan</span><span class="vi">Mở phác đồ điều trị dành riêng cho bạn</span></button>
-        </div>
-      </section>
+    <section id="panel4" class="panel hidden opacity-0 bg-white border border-slate-200 rounded-xl p-6 transition-all duration-300">
+      <h2 class="text-xl font-semibold">4) Interactive Product Roles</h2>
+      <p class="text-slate-500">Vai trò sản phẩm trong từng giai đoạn</p>
+      <div class="mt-4 grid md:grid-cols-3 gap-3" id="roles"></div>
+      <div id="roleDetail" class="hidden mt-3 border rounded-lg p-3"></div>
+      <div class="text-right mt-4">
+        <button id="next5" disabled class="px-4 py-2 rounded-lg bg-slate-900 text-white disabled:opacity-40">Continue</button>
+      </div>
+    </section>
 
-      <section class="card" id="conversion">
-        <h2 class="bilingual"><span class="en">Prescribed Kit Readiness</span><span class="vi">Trạng thái bộ liệu trình theo chỉ định</span></h2>
-        <p id="statusText" class="status bilingual"><span class="en">Awaiting diagnosis completion.</span><span class="vi">Đang chờ hoàn tất bước chẩn đoán.</span></p>
-        <div class="kit">
-          <p class="bilingual"><span class="en">Includes clinician-selected components, timing instructions, and review checkpoints.</span><span class="vi">Bao gồm các thành phần được chuyên gia lựa chọn, hướng dẫn thời điểm sử dụng và mốc tái đánh giá.</span></p>
-        </div>
-        <div class="actions">
-          <button id="getKit" class="btn btn-primary bilingual" disabled><span class="en">Get Your Prescribed Kit</span><span class="vi">Nhận liệu trình điều trị phù hợp</span></button>
-        </div>
-      </section>
+    <section id="panel5" class="panel hidden opacity-0 bg-white border border-slate-200 rounded-xl p-6 transition-all duration-300">
+      <h2 class="text-xl font-semibold">5) What if I do it wrong?</h2>
+      <p class="text-slate-500">Mô phỏng hành vi sai và hậu quả</p>
+      <div class="mt-4 grid md:grid-cols-2 gap-3" id="mistakes"></div>
+      <div id="mistakeDetail" class="hidden mt-3 border border-amber-200 bg-amber-50 rounded-lg p-3"></div>
+      <div class="text-right mt-4">
+        <button id="next6" disabled class="px-4 py-2 rounded-lg bg-slate-900 text-white disabled:opacity-40">Continue</button>
+      </div>
+    </section>
 
-      <section class="card" id="team">
-        <h2 class="bilingual"><span class="en">Medical Monitoring</span><span class="vi">Theo dõi chuyên môn</span></h2>
-        <p class="bilingual"><span class="en">At each review milestone, your protocol can be adjusted by the medical team based on skin response.</span><span class="vi">Ở mỗi mốc tái đánh giá, phác đồ có thể được đội ngũ chuyên môn điều chỉnh theo đáp ứng thực tế của da.</span></p>
-      </section>
-    </main>
+    <section id="panel6" class="panel hidden opacity-0 bg-white border border-slate-200 rounded-xl p-6 transition-all duration-300">
+      <h2 class="text-xl font-semibold">6) Final Summary</h2>
+      <p class="text-slate-500">Tổng kết hệ thống điều trị</p>
+      <div class="mt-3 border rounded-lg p-4">
+        <p class="font-medium">You are not buying random products.</p>
+        <p class="text-slate-500">Bạn không mua sản phẩm rời rạc.</p>
+        <p class="mt-2">You are following a controlled treatment system where each product role matches treatment phase logic.</p>
+        <p class="text-slate-500">Bạn đang tuân theo hệ thống điều trị có kiểm soát, trong đó vai trò sản phẩm đi cùng logic từng giai đoạn.</p>
+      </div>
+      <button id="restart" class="mt-4 px-4 py-2 rounded-lg border border-slate-300">Restart Journey</button>
+    </section>
+  </main>
 
-    <div class="sticky-cta">
-      <button class="btn btn-primary bilingual" id="stickyStart"><span class="en">Start Skin Diagnosis</span><span class="vi">Bắt đầu chẩn đoán da</span></button>
-    </div>
+<script>
+const state = { step: 1, clicks: 0, q: 0, phaseSeen: new Set(), roleSeen: new Set(), riskSeen: false };
+const steps = ["Quiz","Consult","Plan","Kit","Risk","Summary"];
+const questions = [
+  ["Main concern? / Vấn đề chính?", ["Acne / Mụn", "Pigment / Sắc tố", "Sensitivity / Nhạy cảm"]],
+  ["Duration? / Thời gian kéo dài?", ["< 1 month", "1-3 months", "> 3 months"]],
+  ["Tolerance? / Độ dung nạp?", ["Low / Thấp", "Medium / Trung bình", "High / Cao"]],
+];
+const phases = {
+  1: "Week 1-2: barrier reset to reduce irritation risk. / Tuần 1-2: phục hồi nền da, giảm nguy cơ kích ứng.",
+  2: "Week 3-6: active control for inflammation/pigment. / Tuần 3-6: kiểm soát tổn thương hoạt động.",
+  3: "Week 7-12: maintenance to stabilize outcomes. / Tuần 7-12: duy trì để ổn định kết quả.",
+};
+const roles = {
+  base: "Role: tolerance support | Phase: 1 | Why: skin preparation. / Vai trò: hỗ trợ dung nạp | Giai đoạn: 1 | Lý do: chuẩn bị da.",
+  active: "Role: pathology control | Phase: 2 | Why: targeted treatment. / Vai trò: kiểm soát bệnh sinh | Giai đoạn: 2 | Lý do: điều trị đích.",
+  maintain: "Role: relapse prevention | Phase: 3 | Why: long-term stability. / Vai trò: ngừa tái phát | Giai đoạn: 3 | Lý do: ổn định dài hạn.",
+};
+const wrong = {
+  swap: "Random swaps can break phase logic, causing irritation and slower progress. / Đổi ngẫu nhiên có thể phá vỡ logic giai đoạn, tăng kích ứng và chậm cải thiện.",
+  skip: "Skipping maintenance increases rebound risk after temporary improvement. / Bỏ giai đoạn duy trì làm tăng nguy cơ tái phát sau cải thiện tạm thời.",
+};
+const chatFlow = [
+  { bot: "We will guide you step by step. / Chúng tôi sẽ hướng dẫn từng bước." },
+  { bot: "How was your skin this week? / Da tuần này thế nào?", replies: ["Stable", "Slight flare", "Sensitive"] },
+  { bot: "How consistent is your routine? / Mức độ duy trì quy trình?", replies: ["Daily", "Most days", "Irregular"] },
+  { bot: "Please complete final consultation inputs. / Vui lòng nhập thông tin tư vấn cuối." },
+];
+let chatIdx = 0;
 
-    <script src="app.js"></script>
-  </body>
+function inc() { state.clicks++; document.getElementById('clicks').textContent = state.clicks; }
+function renderStepper() {
+  const box = document.getElementById('stepBtns'); box.innerHTML='';
+  steps.forEach((s,i)=>{ const n=i+1; const b=document.createElement('button'); b.textContent=`${n}. ${s}`;
+    b.className=`px-2 py-2 rounded-lg border ${state.step===n?'bg-slate-900 text-white':'bg-white border-slate-300'}`;
+    b.onclick=()=>{inc();goto(n)}; box.appendChild(b); });
+  document.getElementById('progress').style.width = `${(state.step/6)*100}%`;
+}
+function goto(n){ state.step=n; renderStepper(); for(let i=1;i<=6;i++){ const p=document.getElementById('panel'+i); const show=i===n; p.classList.toggle('hidden',!show); p.classList.toggle('opacity-0',!show);} }
+
+function renderQuiz(){
+  const [q,ans]=questions[state.q]||[];
+  const qText=document.getElementById('qText'); const qAnswers=document.getElementById('qAnswers');
+  if(!q){ qText.textContent='Quiz complete / Trắc nghiệm hoàn tất'; qAnswers.innerHTML=''; document.getElementById('next2').disabled=false; return; }
+  qText.textContent=q; qAnswers.innerHTML='';
+  ans.forEach(a=>{ const b=document.createElement('button'); b.className='text-left px-3 py-2 rounded-lg border border-slate-300 hover:bg-slate-50'; b.textContent=a;
+    b.onclick=()=>{inc(); state.q++; renderQuiz();}; qAnswers.appendChild(b);});
+}
+function msg(w,t){ const d=document.createElement('div'); d.className=`max-w-[85%] px-3 py-2 rounded-xl text-sm ${w==='bot'?'bg-white border':'bg-slate-900 text-white ml-auto'}`; d.textContent=t; const c=document.getElementById('chat'); c.appendChild(d); c.scrollTop=c.scrollHeight; }
+function runChat(){ const node=chatFlow[chatIdx]; if(!node){document.getElementById('endForm').classList.remove('hidden'); return;} msg('bot',node.bot); const r=document.getElementById('replies'); r.innerHTML='';
+  if(node.replies){node.replies.forEach(x=>{const b=document.createElement('button'); b.className='px-3 py-2 rounded-lg border bg-white'; b.textContent=x; b.onclick=()=>{inc(); msg('user',x); chatIdx++; runChat();}; r.appendChild(b);});}
+  else { const b=document.createElement('button'); b.className='px-3 py-2 rounded-lg border bg-white'; b.textContent='Next'; b.onclick=()=>{inc(); chatIdx++; runChat();}; r.appendChild(b);} }
+function buildPhases(){ const c=document.getElementById('phases'); c.innerHTML=''; [1,2,3].forEach(n=>{const b=document.createElement('button'); b.className='text-left border rounded-lg p-3 hover:bg-slate-50'; b.innerHTML=`Phase ${n}<br><span class='text-slate-500 text-sm'>Giai đoạn ${n}</span>`;
+ b.onclick=()=>{inc(); state.phaseSeen.add(n); const d=document.getElementById('phaseDetail'); d.classList.remove('hidden'); d.textContent=phases[n]; if(state.phaseSeen.size===3) document.getElementById('next4').disabled=false;}; c.appendChild(b);}); }
+function buildRoles(){ const c=document.getElementById('roles'); c.innerHTML=''; [['base','Barrier Support'],['active','Active Control'],['maintain','Maintenance']].forEach(([k,t])=>{const b=document.createElement('button'); b.className='text-left border rounded-lg p-3 hover:bg-slate-50'; b.innerHTML=`${t}<br><span class='text-slate-500 text-sm'>${k}</span>`;
+ b.onclick=()=>{inc(); state.roleSeen.add(k); const d=document.getElementById('roleDetail'); d.classList.remove('hidden'); d.textContent=roles[k]; if(state.roleSeen.size===3) document.getElementById('next5').disabled=false;}; c.appendChild(b);}); }
+function buildWrong(){ const c=document.getElementById('mistakes'); c.innerHTML=''; [['swap','Random product swap'],['skip','Skip maintenance phase']].forEach(([k,t])=>{const b=document.createElement('button'); b.className='text-left border rounded-lg p-3 hover:bg-slate-50'; b.innerHTML=`${t}<br><span class='text-slate-500 text-sm'>${k}</span>`;
+ b.onclick=()=>{inc(); state.riskSeen=true; const d=document.getElementById('mistakeDetail'); d.classList.remove('hidden'); d.textContent=wrong[k]; document.getElementById('next6').disabled=false;}; c.appendChild(b);}); }
+
+document.getElementById('next2').onclick=()=>{inc();goto(2)};
+document.getElementById('next3').onclick=()=>{inc();goto(3)};
+document.getElementById('next4').onclick=()=>{inc();goto(4)};
+document.getElementById('next5').onclick=()=>{inc();goto(5)};
+document.getElementById('next6').onclick=()=>{inc();goto(6)};
+document.getElementById('restart').onclick=()=>location.reload();
+document.getElementById('endForm').addEventListener('submit',e=>{e.preventDefault();inc(); msg('bot','Consultation complete. / Tư vấn hoàn tất.'); document.getElementById('next3').disabled=false; document.getElementById('replies').innerHTML='';});
+
+renderStepper(); renderQuiz(); runChat(); buildPhases(); buildRoles(); buildWrong(); goto(1);
+</script>
+</body>
 </html>
