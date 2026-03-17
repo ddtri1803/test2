@@ -23,10 +23,12 @@ Diagnosis → Assigned Plan → Treatment Kit → Monitoring
 - `assets/`
   - `css/theme.css`
   - `js/state.js`
+  - `js/interactive.js`
 
 ## Implementation notes
 
 - Plain HTML + TailwindCSS (CDN) + minimal vanilla JS
 - State simulation via `body[data-state="pre-diagnosis|diagnosed|active-treatment"]`
+- Interactive multi-step journey in `frontend/index.html` (quiz, chat, clickable timeline, kit role explorer, risk simulator)
 - Bilingual content with English line first and Vietnamese line below
 - Minimal, clinical, premium visual style
